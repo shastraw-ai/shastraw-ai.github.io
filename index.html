@@ -6,57 +6,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>V. Obuli Krishnararaj</title>
     <style>
-        body {
+        html, body {
             margin: 0;
             padding: 0;
             font-family: 'Georgia', serif;
             color: #333;
+            height: 100%;
+            overflow: hidden;
         }
 
-        .header {
+        .layout {
+            display: flex;
+            height: 100vh;
+        }
+
+        .image-panel {
+            width: 66.66%;
             position: relative;
-            text-align: center;
+            overflow: hidden;
         }
 
         .header-image {
             width: 100%;
-            max-height: 350px;
+            height: 100%;
             object-fit: cover;
+            object-position: center 40%;
+            display: block;
         }
 
-        .title {
-            position: absolute;
-            top: 10%;
-            left: 88%;
-            transform: translate(-50%, -50%);
-            font-size: 64px;
-            color: #ffffff;
-            background-color: rgba(0, 0, 0, 0);
-            padding: 10px;
-            font-family: 'Helvetica', sans-serif;
-        }
-
-        main {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 60px 40px;
+        .content-panel {
+            width: 33.33%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 30px 30px;
+            box-sizing: border-box;
+            overflow-y: auto;
         }
 
         h1 {
-            font-size: 36px;
+            font-size: 30px;
             margin-bottom: 10px;
+            margin-top: 0;
         }
 
         .bio {
-            font-size: 20px;
+            font-size: 16px;
             color: #444;
             line-height: 1.6;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
         }
 
         h2 {
-            font-size: 28px;
-            margin-bottom: 20px;
+            font-size: 22px;
+            margin-bottom: 15px;
         }
 
         .projects {
@@ -69,7 +72,7 @@
         }
 
         .projects a {
-            font-size: 20px;
+            font-size: 17px;
             color: hsl(204, 63%, 49%);
             text-decoration: none;
         }
@@ -79,7 +82,7 @@
         }
 
         .project-desc {
-            font-size: 16px;
+            font-size: 14px;
             color: #666;
             margin-top: 4px;
         }
@@ -90,57 +93,77 @@
             padding: 10px;
             text-align: center;
             font-size: 14px;
+            margin-top: auto;
         }
 
         @media (max-width: 768px) {
-            .title {
-                position: absolute;
-                top: 10px;
-                left: 30%;
-                transform: translateX(-50%);
-                font-size: 28px;
-                padding: 5px;
+            .layout {
+                flex-direction: column;
+                height: 100vh;
             }
 
-            .header-image {
-                height: auto;
+            .image-panel {
+                width: 100%;
+                height: 35vh;
+                flex-shrink: 0;
             }
 
-            main {
-                padding: 30px 20px;
+            .content-panel {
+                width: 100%;
+                height: 65vh;
+                padding: 20px 20px;
+                overflow-y: auto;
             }
 
             h1 {
-                font-size: 28px;
+                font-size: 24px;
             }
 
             .bio {
+                font-size: 14px;
+                margin-bottom: 20px;
+            }
+
+            h2 {
                 font-size: 18px;
+                margin-bottom: 10px;
+            }
+
+            .projects li {
+                margin-bottom: 10px;
             }
         }
     </style>
 </head>
 
 <body>
-    <div class="header">
-        <img class="header-image" src="images/building2.jpg" alt="header">
-        <div class="title">shastraw.ai</div>
-    </div>
-    <main>
-        <h1>V. Obuli Krishnararaj</h1>
-        <p class="bio">Tech Leader with a strong track record of taking 0-to-1 ideas from inception to scalable products. Over 8 years of experience thriving in fast-paced startup environments and 15+ years of expertise in software design and development. Specialized in building systems at scale, with deep expertise in AI, Big Data, Machine Learning and Graph Processing.</p>
+    <div class="layout">
+        <div class="image-panel">
+            <img class="header-image" src="images/building2.jpg" alt="header">
+        </div>
+        <div class="content-panel">
+            <h1>V. Obuli Krishnararaj</h1>
+            <p class="bio">Random Dreams → Wild Ideas → Messy Tokens → Working Code.<br/>Thanks to Claude Code.</p>
 
-        <h2>Projects</h2>
-        <ul class="projects">
-            <li>
-                <a href="graphedart.html">GraphedarT</a>
-                <p class="project-desc">Exploring the intersection of graph + personal stock trade.</p>
-            </li>
-        </ul>
-    </main>
-    <footer>
-        &copy; 2026 V. Obuli Krishnararaj
-    </footer>
+            <ul class="projects">
+                <li>
+                    <a href="graphedart.html">GraphedarT</a>
+                    <p class="project-desc">Exploring the intersection of graph + personal stock trade.</p>
+                </li>
+                <li>
+                    <a href="https://github.com/shastraw-ai/our-journal">Family Journal</a>
+                    <p class="project-desc">A shared family journal to capture everyday moments together.</p>
+                </li>
+                <li>
+                    <a href="https://github.com/shastraw-ai/clue-story">Clue Story</a>
+                    <p class="project-desc">Bedtime stories for kids.</p>
+                </li>
+            </ul>
+            <footer>
+                &copy; 2026 V. Obuli Krishnararaj
+            </footer>
+        </div>
+    </div>
 </body>
 
 </html>
