@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>gtrade weekly retrain status</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root {
+    --bg: #0f1419;
+    --panel: #1a1f2a;
+    --border: #2a3240;
+    --text: #e8eaed;
+    --muted: #8b95a5;
+    --pos: #4ade80;
+    --neg: #f87171;
+    --zero: #94a3b8;
+    --accent: #60a5fa;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--text); font: 14px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; padding: 24px; }
+h1 { font-size: 22px; margin: 0 0 4px; }
+h2 { font-size: 16px; margin: 24px 0 8px; color: var(--muted); font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; }
+.subtitle { color: var(--muted); margin-bottom: 24px; }
+.summary { background: var(--panel); border: 1px solid var(--border); border-radius: 8px; padding: 16px 20px; margin-bottom: 24px; }
+.summary code { background: rgba(96, 165, 250, 0.1); color: var(--accent); padding: 2px 6px; border-radius: 4px; font-size: 13px; }
+table { width: 100%; border-collapse: collapse; background: var(--panel); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--border); vertical-align: top; }
+th { background: #141923; font-weight: 600; color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; }
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: rgba(96, 165, 250, 0.05); }
+.run-date { font-weight: 600; font-family: SFMono-Regular, ui-monospace, monospace; }
+.muted { color: var(--muted); }
+.pos { color: var(--pos); }
+.neg { color: var(--neg); }
+.zero { color: var(--zero); }
+.chip { display: inline-block; background: rgba(255,255,255,0.04); border: 1px solid var(--border); padding: 2px 8px; border-radius: 12px; font-size: 12px; font-family: SFMono-Regular, ui-monospace, monospace; margin: 2px 2px 2px 0; }
+.chip.pos { border-color: rgba(74, 222, 128, 0.4); color: var(--pos); }
+.chip.neg { border-color: rgba(248, 113, 113, 0.4); color: var(--neg); }
+.chip.zero { border-color: var(--border); color: var(--zero); }
+.badge { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.03em; }
+.badge-promote { background: rgba(74, 222, 128, 0.15); color: var(--pos); }
+.badge-reject { background: rgba(248, 113, 113, 0.15); color: var(--neg); }
+.badge-bootstrap { background: rgba(96, 165, 250, 0.15); color: var(--accent); }
+.badge-unknown { background: rgba(255,255,255,0.08); color: var(--muted); }
+.num { font-family: SFMono-Regular, ui-monospace, monospace; text-align: right; }
+.path { font-family: SFMono-Regular, ui-monospace, monospace; font-size: 12px; color: var(--muted); word-break: break-all; }
+details { margin-top: 4px; }
+details summary { cursor: pointer; color: var(--accent); font-size: 12px; outline: none; }
+details > div { margin-top: 8px; padding: 8px; background: rgba(0,0,0,0.2); border-radius: 6px; }
+footer { margin-top: 32px; color: var(--muted); font-size: 12px; }
+</style>
+</head>
+<body>
+
+        <h1>gtrade weekly retrain status</h1>
+        <div class="subtitle">Generated 2026-04-16 21:10</div>
+        <div class="summary">
+          <div><strong>Currently promoted:</strong> <code>/Users/obuli/graphedart/rolling_ae3/rolling</code></div>
+          <div class="muted" style="margin-top:4px">Last 2 runs shown, most recent first.</div>
+        </div>
+        <h2>Run history</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>TD_END</th>
+              <th>Decision</th>
+              <th>NEW Σ</th>
+              <th>OLD Σ</th>
+              <th>Δ</th>
+              <th>Min Δ</th>
+              <th>Iters</th>
+              <th>Backtest window</th>
+              <th>Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr>
+              <td class="run-date">2026-04-16.bad</td>
+              <td><span class="badge badge-reject">reject</span></td>
+              <td class="num">+0.4804</td>
+              <td class="num">+0.9129</td>
+              <td class="num neg">-0.4326</td>
+              <td class="num muted">0.0000</td>
+              <td class="muted">12</td>
+              <td class="muted">2026-04-06 → 2026-04-14 (7 days)</td>
+              <td>
+            <details>
+              <summary>Per side × horizon (42 new / 42 old rows)</summary>
+              <div>
+                <p class="muted" style="margin:0 0 6px"><strong>NEW:</strong> <span class="chip pos">B1d: +0.0867</span> <span class="chip pos">B2d: +0.2766</span> <span class="chip pos">B3d: +0.5085</span> <span class="chip neg">S1d: -0.0509</span> <span class="chip neg">S2d: -0.1030</span> <span class="chip neg">S3d: -0.2376</span></p>
+                <p class="muted" style="margin:0 0 6px"><strong>OLD:</strong> <span class="chip pos">B1d: +0.1349</span> <span class="chip pos">B2d: +0.3447</span> <span class="chip pos">B3d: +0.5402</span> <span class="chip pos">S1d: +0.0089</span> <span class="chip neg">S2d: -0.0104</span> <span class="chip neg">S3d: -0.1054</span></p>
+                <p class="muted" style="margin:8px 0 6px"><strong>Last-iter PR-AUC (test):</strong> <span class="chip">up_1d: 0.243</span> <span class="chip">up_2d: 0.344</span> <span class="chip">up_3d: 0.410</span> <span class="chip">down_1d: 0.235</span> <span class="chip">down_2d: 0.214</span> <span class="chip">down_3d: 0.181</span></p>
+                <p class="path">NEW: /Users/obuli/gtrade/graphedart/data/ml/rolling_2026-04-16</p>
+                <p class="path">OLD: /Users/obuli/graphedart/rolling_ae3/rolling</p>
+              </div>
+            </details>
+        </td>
+            </tr>
+        
+            <tr>
+              <td class="run-date">2026-04-16</td>
+              <td><span class="badge badge-reject">reject</span></td>
+              <td class="num">+0.6907</td>
+              <td class="num">+0.9129</td>
+              <td class="num neg">-0.2223</td>
+              <td class="num muted">0.0000</td>
+              <td class="muted">12</td>
+              <td class="muted">2026-04-06 → 2026-04-14 (7 days)</td>
+              <td>
+            <details>
+              <summary>Per side × horizon (42 new / 42 old rows)</summary>
+              <div>
+                <p class="muted" style="margin:0 0 6px"><strong>NEW:</strong> <span class="chip pos">B1d: +0.0920</span> <span class="chip pos">B2d: +0.2860</span> <span class="chip pos">B3d: +0.5109</span> <span class="chip neg">S1d: -0.0017</span> <span class="chip neg">S2d: -0.0320</span> <span class="chip neg">S3d: -0.1646</span></p>
+                <p class="muted" style="margin:0 0 6px"><strong>OLD:</strong> <span class="chip pos">B1d: +0.1349</span> <span class="chip pos">B2d: +0.3447</span> <span class="chip pos">B3d: +0.5402</span> <span class="chip pos">S1d: +0.0089</span> <span class="chip neg">S2d: -0.0104</span> <span class="chip neg">S3d: -0.1054</span></p>
+                <p class="muted" style="margin:8px 0 6px"><strong>Last-iter PR-AUC (test):</strong> <span class="chip">up_1d: 0.243</span> <span class="chip">up_2d: 0.344</span> <span class="chip">up_3d: 0.410</span> <span class="chip">down_1d: 0.235</span> <span class="chip">down_2d: 0.214</span> <span class="chip">down_3d: 0.181</span></p>
+                <p class="path">NEW: /Users/obuli/gtrade/graphedart/data/ml/rolling_2026-04-16</p>
+                <p class="path">OLD: /Users/obuli/graphedart/rolling_ae3/rolling</p>
+              </div>
+            </details>
+        </td>
+            </tr>
+        
+          </tbody>
+        </table>
+        <footer>
+          NEW Σ / OLD Σ = sum of <code>mean_signed_return</code> across all rows of <code>backtest_summary.csv</code>
+          (buy+sell × 1d/2d/3d × test days). Promote when Δ ≥ Min Δ.
+        </footer>
+    
+</body>
+</html>
