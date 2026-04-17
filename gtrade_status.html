@@ -53,10 +53,10 @@ footer { margin-top: 32px; color: var(--muted); font-size: 12px; }
 <body>
 
         <h1>gtrade weekly retrain status</h1>
-        <div class="subtitle">Generated 2026-04-16 23:49</div>
+        <div class="subtitle">Generated 2026-04-17 12:04</div>
         <div class="summary">
           <div><strong>Currently promoted:</strong> <code>/Users/obuli/graphedart/rolling_ae3/rolling</code></div>
-          <div class="muted" style="margin-top:4px">Last 2 runs shown, most recent first.</div>
+          <div class="muted" style="margin-top:4px">Last 3 runs shown, most recent first.</div>
         </div>
         <h2>Run history</h2>
         <table>
@@ -64,8 +64,8 @@ footer { margin-top: 32px; color: var(--muted); font-size: 12px; }
             <tr>
               <th>TD_END</th>
               <th>Decision</th>
-              <th>NEW Σ</th>
-              <th>OLD Σ</th>
+              <th>NEW Σ (weighted 3:2:1)</th>
+              <th>OLD Σ (weighted 3:2:1)</th>
               <th>Δ</th>
               <th>Min Δ</th>
               <th>Iters</th>
@@ -90,7 +90,7 @@ footer { margin-top: 32px; color: var(--muted); font-size: 12px; }
               <div>
                 <p class="muted" style="margin:0 0 6px"><strong>NEW:</strong> <span class="chip pos">B1d: +0.0920</span> <span class="chip pos">B2d: +0.2860</span> <span class="chip pos">B3d: +0.5109</span> <span class="chip neg">S1d: -0.0017</span> <span class="chip neg">S2d: -0.0320</span> <span class="chip neg">S3d: -0.1646</span></p>
                 <p class="muted" style="margin:0 0 6px"><strong>OLD:</strong> <span class="chip pos">B1d: +0.1349</span> <span class="chip pos">B2d: +0.3447</span> <span class="chip pos">B3d: +0.5402</span> <span class="chip pos">S1d: +0.0089</span> <span class="chip neg">S2d: -0.0104</span> <span class="chip neg">S3d: -0.1054</span></p>
-                <p class="muted" style="margin:8px 0 6px"><strong>Last-iter PR-AUC (test):</strong> <span class="chip">up_1d: 0.243</span> <span class="chip">up_2d: 0.343</span> <span class="chip">up_3d: 0.470</span> <span class="chip">down_1d: 0.226</span> <span class="chip">down_2d: 0.207</span> <span class="chip">down_3d: 0.185</span></p>
+                <p class="muted" style="margin:8px 0 6px"><strong>Last-iter PR-AUC (test):</strong> <span class="chip">up_1d: 0.264</span> <span class="chip">up_2d: 0.377</span> <span class="chip">up_3d: 0.461</span> <span class="chip">down_1d: 0.233</span> <span class="chip">down_2d: 0.176</span> <span class="chip">down_3d: 0.192</span></p>
                 <p class="path">NEW: /Users/obuli/gtrade/graphedart/data/ml/rolling_2026-04-16</p>
                 <p class="path">OLD: /Users/obuli/graphedart/rolling_ae3/rolling</p>
               </div>
@@ -99,7 +99,7 @@ footer { margin-top: 32px; color: var(--muted); font-size: 12px; }
             </tr>
         
             <tr>
-              <td class="run-date">2026-04-16</td>
+              <td class="run-date">2026-04-16.o2</td>
               <td><span class="badge badge-reject">reject</span></td>
               <td class="num">+0.5997</td>
               <td class="num">+1.0470</td>
@@ -113,7 +113,30 @@ footer { margin-top: 32px; color: var(--muted); font-size: 12px; }
               <div>
                 <p class="muted" style="margin:0 0 6px"><strong>NEW:</strong> <span class="chip pos">B1d: +0.1571</span> <span class="chip pos">B2d: +0.3416</span> <span class="chip pos">B3d: +0.5236</span> <span class="chip neg">S1d: -0.0436</span> <span class="chip neg">S2d: -0.1399</span> <span class="chip neg">S3d: -0.2391</span></p>
                 <p class="muted" style="margin:0 0 6px"><strong>OLD:</strong> <span class="chip pos">B1d: +0.1474</span> <span class="chip pos">B2d: +0.4074</span> <span class="chip pos">B3d: +0.5991</span> <span class="chip pos">S1d: +0.0089</span> <span class="chip neg">S2d: -0.0104</span> <span class="chip neg">S3d: -0.1054</span></p>
-                <p class="muted" style="margin:8px 0 6px"><strong>Last-iter PR-AUC (test):</strong> <span class="chip">up_1d: 0.243</span> <span class="chip">up_2d: 0.343</span> <span class="chip">up_3d: 0.470</span> <span class="chip">down_1d: 0.226</span> <span class="chip">down_2d: 0.207</span> <span class="chip">down_3d: 0.185</span></p>
+                <p class="muted" style="margin:8px 0 6px"><strong>Last-iter PR-AUC (test):</strong> <span class="chip">up_1d: 0.264</span> <span class="chip">up_2d: 0.377</span> <span class="chip">up_3d: 0.461</span> <span class="chip">down_1d: 0.233</span> <span class="chip">down_2d: 0.176</span> <span class="chip">down_3d: 0.192</span></p>
+                <p class="path">NEW: /Users/obuli/gtrade/graphedart/data/ml/rolling_2026-04-16</p>
+                <p class="path">OLD: /Users/obuli/graphedart/rolling_ae3/rolling</p>
+              </div>
+            </details>
+        </td>
+            </tr>
+        
+            <tr>
+              <td class="run-date">2026-04-16</td>
+              <td><span class="badge badge-reject">reject</span></td>
+              <td class="num">+1.2170<div class="muted" style="font-size:11px">raw +0.7378</div></td>
+              <td class="num">+1.7565<div class="muted" style="font-size:11px">raw +1.0470</div></td>
+              <td class="num neg">-0.5395</td>
+              <td class="num muted">0.0000</td>
+              <td class="muted">12</td>
+              <td class="muted">2026-04-06 → 2026-04-14 (7 days)</td>
+              <td>
+            <details>
+              <summary>Per side × horizon (42 new / 42 old rows)</summary>
+              <div>
+                <p class="muted" style="margin:0 0 6px"><strong>NEW:</strong> <span class="chip pos">B1d: +0.1112</span> <span class="chip pos">B2d: +0.2998</span> <span class="chip pos">B3d: +0.4776</span> <span class="chip neg">S1d: -0.0049</span> <span class="chip neg">S2d: -0.0334</span> <span class="chip neg">S3d: -0.1126</span></p>
+                <p class="muted" style="margin:0 0 6px"><strong>OLD:</strong> <span class="chip pos">B1d: +0.1474</span> <span class="chip pos">B2d: +0.4074</span> <span class="chip pos">B3d: +0.5991</span> <span class="chip pos">S1d: +0.0089</span> <span class="chip neg">S2d: -0.0104</span> <span class="chip neg">S3d: -0.1054</span></p>
+                <p class="muted" style="margin:8px 0 6px"><strong>Last-iter PR-AUC (test):</strong> <span class="chip">up_1d: 0.264</span> <span class="chip">up_2d: 0.377</span> <span class="chip">up_3d: 0.461</span> <span class="chip">down_1d: 0.233</span> <span class="chip">down_2d: 0.176</span> <span class="chip">down_3d: 0.192</span></p>
                 <p class="path">NEW: /Users/obuli/gtrade/graphedart/data/ml/rolling_2026-04-16</p>
                 <p class="path">OLD: /Users/obuli/graphedart/rolling_ae3/rolling</p>
               </div>
@@ -124,8 +147,11 @@ footer { margin-top: 32px; color: var(--muted); font-size: 12px; }
           </tbody>
         </table>
         <footer>
-          NEW Σ / OLD Σ = sum of <code>mean_signed_return</code> across all rows of <code>backtest_summary.csv</code>
-          (buy+sell × 1d/2d/3d × test days). Promote when Δ ≥ Min Δ.
+          NEW Σ / OLD Σ = <code>Σ horizon_weight × mean_signed_return</code> over
+          <code>backtest_summary.csv</code> rows, with weights
+          <code>{"1d": 3, "2d": 2, "3d": 1}</code> (1d picks are more actionable).
+          The <span class="muted">raw</span> subline shows the unweighted sum for reference.
+          Promote when Δ ≥ Min Δ.
         </footer>
     
 </body>
