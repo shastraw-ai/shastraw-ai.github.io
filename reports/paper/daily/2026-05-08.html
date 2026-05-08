@@ -83,6 +83,8 @@ tr:hover { background: rgba(66, 165, 245, 0.05); }
 .nav { display: flex; gap: 16px; margin-bottom: 20px; }
 .nav a { color: var(--blue); text-decoration: none; font-size: 13px; }
 .nav a:hover { text-decoration: underline; }
+td a { color: var(--blue); text-decoration: none; }
+td a:hover { text-decoration: underline; }
 </style>
 </head>
 <body>
@@ -98,26 +100,26 @@ tr:hover { background: rgba(66, 165, 245, 0.05); }
 <div class="metric-card"><div class="metric-label">Closed</div><div class="metric-value neutral">0</div></div>
 <div class="metric-card"><div class="metric-label">Capital Deployed</div><div class="metric-value pos">$3,136.34</div></div>
 <div class="metric-card"><div class="metric-label">Realized P&L</div><div class="metric-value neutral">$0.00</div></div>
-<div class="metric-card"><div class="metric-label">Unrealized P&L</div><div class="metric-value pos">$255.05</div></div>
+<div class="metric-card"><div class="metric-label">Unrealized P&L</div><div class="metric-value pos">$250.01</div></div>
 <div class="metric-card"><div class="metric-label">Equity</div><div class="metric-value pos">$10,000.00</div></div>
 <div class="metric-card"><div class="metric-label">Cash %</div><div class="metric-value neutral">100.0%</div></div>
 <div class="metric-card"><div class="metric-label">SPY Return</div><div class="metric-value neutral">—</div></div>
 </div>
 <h2>Buys</h2>
 <table><thead><tr><th>Ticker</th><th>Entry Price</th><th>Size ($)</th><th>Weight (%)</th><th>Score</th></tr></thead><tbody>
-<tr><td>SEAT</td><td>$8.91</td>
+<tr><td><a href="https://finance.yahoo.com/quote/SEAT" target="_blank" rel="noopener">SEAT</a></td><td>$8.91</td>
 <td>$829.09</td>
 <td>8.3%</td>
 <td>2.4266</td></tr>
-<tr><td>AAON</td><td>$126.06</td>
+<tr><td><a href="https://finance.yahoo.com/quote/AAON" target="_blank" rel="noopener">AAON</a></td><td>$126.06</td>
 <td>$756.39</td>
 <td>7.6%</td>
 <td>2.2985</td></tr>
-<tr><td>PHAT</td><td>$12.19</td>
+<tr><td><a href="https://finance.yahoo.com/quote/PHAT" target="_blank" rel="noopener">PHAT</a></td><td>$12.19</td>
 <td>$816.73</td>
 <td>8.2%</td>
 <td>2.2124</td></tr>
-<tr><td>MXL</td><td>$81.57</td>
+<tr><td><a href="https://finance.yahoo.com/quote/MXL" target="_blank" rel="noopener">MXL</a></td><td>$81.57</td>
 <td>$734.13</td>
 <td>7.3%</td>
 <td>2.1041</td></tr>
@@ -126,23 +128,23 @@ tr:hover { background: rgba(66, 165, 245, 0.05); }
 <div class="info-box">No positions closed.</div>
 <h2>Execution</h2>
 <table><thead><tr><th>Ticker</th><th>Qty</th><th>Proposal Est.</th><th>Live Price</th><th>Slippage (%)</th><th>Slippage (bps)</th><th>Actual Cost</th></tr></thead><tbody>
-<tr><td>SEAT</td><td>93</td><td>$8.94</td><td>$8.91</td><td class="pos">-0.28%</td><td class="pos">-28.0</td><td>$829.09</td></tr>
-<tr><td>AAON</td><td>6</td><td>$131.07</td><td>$126.06</td><td class="pos">-3.82%</td><td class="pos">-382.0</td><td>$756.39</td></tr>
-<tr><td>PHAT</td><td>67</td><td>$12.29</td><td>$12.19</td><td class="pos">-0.81%</td><td class="pos">-81.0</td><td>$816.73</td></tr>
-<tr><td>MXL</td><td>9</td><td>$90.26</td><td>$81.57</td><td class="pos">-9.63%</td><td class="pos">-963.0</td><td>$734.13</td></tr>
+<tr><td><a href="https://finance.yahoo.com/quote/SEAT" target="_blank" rel="noopener">SEAT</a></td><td>93</td><td>$8.94</td><td>$8.91</td><td class="pos">-0.28%</td><td class="pos">-28.0</td><td>$829.09</td></tr>
+<tr><td><a href="https://finance.yahoo.com/quote/AAON" target="_blank" rel="noopener">AAON</a></td><td>6</td><td>$131.07</td><td>$126.06</td><td class="pos">-3.82%</td><td class="pos">-382.0</td><td>$756.39</td></tr>
+<tr><td><a href="https://finance.yahoo.com/quote/PHAT" target="_blank" rel="noopener">PHAT</a></td><td>67</td><td>$12.29</td><td>$12.19</td><td class="pos">-0.81%</td><td class="pos">-81.0</td><td>$816.73</td></tr>
+<tr><td><a href="https://finance.yahoo.com/quote/MXL" target="_blank" rel="noopener">MXL</a></td><td>9</td><td>$90.26</td><td>$81.57</td><td class="pos">-9.63%</td><td class="pos">-963.0</td><td>$734.13</td></tr>
 </tbody></table>
 <h3>Top 10 Candidates</h3>
 <table><thead><tr><th>Rank</th><th>Ticker</th><th>Score</th><th>Status</th></tr></thead><tbody>
-<tr><td>1</td><td>SEAT</td><td>2.4266</td><td class="pos">submitted</td></tr>
-<tr><td>2</td><td>AAON</td><td>2.2985</td><td class="pos">submitted</td></tr>
-<tr><td>3</td><td>PHAT</td><td>2.2124</td><td class="pos">submitted</td></tr>
-<tr><td>4</td><td>MXL</td><td>2.1041</td><td class="pos">submitted</td></tr>
+<tr><td>1</td><td><a href="https://finance.yahoo.com/quote/SEAT" target="_blank" rel="noopener">SEAT</a></td><td>2.4266</td><td class="pos">submitted</td></tr>
+<tr><td>2</td><td><a href="https://finance.yahoo.com/quote/AAON" target="_blank" rel="noopener">AAON</a></td><td>2.2985</td><td class="pos">submitted</td></tr>
+<tr><td>3</td><td><a href="https://finance.yahoo.com/quote/PHAT" target="_blank" rel="noopener">PHAT</a></td><td>2.2124</td><td class="pos">submitted</td></tr>
+<tr><td>4</td><td><a href="https://finance.yahoo.com/quote/MXL" target="_blank" rel="noopener">MXL</a></td><td>2.1041</td><td class="pos">submitted</td></tr>
 </tbody></table>
 <h2>Position Tracker</h2>
 <table><thead><tr><th>Ticker</th><th>Entry</th><th>Current</th><th>Return (%)</th><th>Return ($)</th><th>Days</th><th>Status</th></tr></thead><tbody>
-<tr><td>SEAT</td><td>$8.91</td><td>$9.01</td><td class="pos">+1.07%</td><td class="pos">$+8.84</td><td>1</td><td class="pos">open</td></tr>
-<tr><td>AAON</td><td>$126.06</td><td>$138.95</td><td class="pos">+10.22%</td><td class="pos">$+77.31</td><td>1</td><td class="pos">open</td></tr>
-<tr><td>PHAT</td><td>$12.19</td><td>$12.16</td><td class="neg">-0.25%</td><td class="neg">$-2.01</td><td>1</td><td class="pos">open</td></tr>
-<tr><td>MXL</td><td>$81.57</td><td>$100.56</td><td class="pos">+23.28%</td><td class="pos">$+170.91</td><td>1</td><td class="pos">open</td></tr>
+<tr><td><a href="https://finance.yahoo.com/quote/SEAT" target="_blank" rel="noopener">SEAT</a></td><td>$8.91</td><td>$9.01</td><td class="pos">+1.07%</td><td class="pos">$+8.84</td><td>1</td><td class="pos">open</td></tr>
+<tr><td><a href="https://finance.yahoo.com/quote/AAON" target="_blank" rel="noopener">AAON</a></td><td>$126.06</td><td>$138.95</td><td class="pos">+10.22%</td><td class="pos">$+77.31</td><td>1</td><td class="pos">open</td></tr>
+<tr><td><a href="https://finance.yahoo.com/quote/PHAT" target="_blank" rel="noopener">PHAT</a></td><td>$12.19</td><td>$12.16</td><td class="neg">-0.25%</td><td class="neg">$-2.01</td><td>1</td><td class="pos">open</td></tr>
+<tr><td><a href="https://finance.yahoo.com/quote/MXL" target="_blank" rel="noopener">MXL</a></td><td>$81.57</td><td>$100.00</td><td class="pos">+22.59%</td><td class="pos">$+165.87</td><td>1</td><td class="pos">open</td></tr>
 </tbody></table>
 <div class="footer">Generated by publish_paper_reports.py</div></body></html>
