@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paper Trading — 2026-05-05</title>
+<style>
+:root {
+    --bg: #1a1a2e;
+    --panel: #16213e;
+    --panel2: #0f3460;
+    --text: #e0e0e0;
+    --muted: #888;
+    --pos: #4caf50;
+    --neg: #ef5350;
+    --blue: #42a5f5;
+    --border: #333;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+    font-size: 13px;
+    padding: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+h1 { font-size: 20px; margin-bottom: 6px; color: var(--blue); }
+h2 { font-size: 16px; margin: 24px 0 12px; color: var(--blue); border-bottom: 1px solid var(--border); padding-bottom: 4px; }
+h3 { font-size: 14px; margin: 16px 0 8px; color: var(--text); }
+.subtitle { color: var(--muted); font-size: 12px; margin-bottom: 20px; }
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 12px;
+    margin-bottom: 20px;
+}
+.metric-card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 12px;
+}
+.metric-label { font-size: 11px; color: var(--muted); text-transform: uppercase; }
+.metric-value { font-size: 18px; font-weight: bold; margin-top: 4px; }
+.pos { color: var(--pos); }
+.neg { color: var(--neg); }
+.neutral { color: var(--text); }
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0;
+    font-size: 12px;
+}
+th, td {
+    padding: 6px 10px;
+    text-align: right;
+    border-bottom: 1px solid var(--border);
+}
+th { background: var(--panel2); color: var(--muted); font-weight: 600; text-transform: uppercase; font-size: 11px; }
+td:first-child, th:first-child { text-align: left; }
+tr:hover { background: rgba(66, 165, 245, 0.05); }
+.chart-container { margin: 16px 0; text-align: center; }
+.chart-container img { max-width: 100%; border-radius: 6px; }
+.alert-box {
+    background: rgba(239, 83, 80, 0.15);
+    border: 1px solid var(--neg);
+    border-radius: 6px;
+    padding: 12px;
+    margin: 12px 0;
+}
+.info-box {
+    background: rgba(66, 165, 245, 0.1);
+    border: 1px solid var(--blue);
+    border-radius: 6px;
+    padding: 12px;
+    margin: 12px 0;
+}
+.footer { margin-top: 32px; padding-top: 12px; border-top: 1px solid var(--border); color: var(--muted); font-size: 11px; }
+</style>
+<style>
+.nav { display: flex; gap: 16px; margin-bottom: 20px; }
+.nav a { color: var(--blue); text-decoration: none; font-size: 13px; }
+.nav a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<div class="nav">
+    <a href="../index.html">&larr; Overview</a>
+    <a href="2026-05-01.html">&larr; 2026-05-01</a>
+    <a href="2026-05-06.html">2026-05-06 &rarr;</a>
+</div>
+<h1>Paper Trading &mdash; 2026-05-05</h1>
+<div class="subtitle">Report generated 2026-05-05T15:00:01.226231</div>
+<h2>Day Summary</h2>
+<div class="metrics-grid">
+<div class="metric-card"><div class="metric-label">Opened</div><div class="metric-value neutral">0</div></div>
+<div class="metric-card"><div class="metric-label">Closed</div><div class="metric-value neutral">0</div></div>
+<div class="metric-card"><div class="metric-label">Capital Deployed</div><div class="metric-value neutral">—</div></div>
+<div class="metric-card"><div class="metric-label">Realized P&L</div><div class="metric-value neutral">$0.00</div></div>
+<div class="metric-card"><div class="metric-label">Equity</div><div class="metric-value pos">$5,009.14</div></div>
+<div class="metric-card"><div class="metric-label">Cash %</div><div class="metric-value neutral">86.5%</div></div>
+<div class="metric-card"><div class="metric-label">SPY Return</div><div class="metric-value neutral">—</div></div>
+</div>
+<h2>Buys</h2>
+<div class="info-box">No positions opened.</div>
+<h2>Sells</h2>
+<div class="info-box">No positions closed.</div>
+<h2>Execution Slippage</h2>
+<div class="info-box">No execution slippage data.</div>
+<h2>Portfolio Snapshot</h2>
+<table><thead><tr><th>Ticker</th><th>Qty</th><th>Avg Entry</th><th>Current</th><th>Mkt Value</th><th>Unreal P&L ($)</th><th>Unreal P&L (%)</th><th>Days Held</th><th>Alloc %</th></tr></thead><tbody>
+<tr><td>AGL</td><td>14.0</td><td>$28.19</td><td>$26.74</td><td>$374.36</td><td class="neg">$-20.30</td><td class="neg">-5.14%</td><td>2</td><td>7.5%</td></tr>
+<tr><td>CDNA</td><td>18.0</td><td>$21.63</td><td>$20.70</td><td>$372.60</td><td class="neg">$-16.74</td><td class="neg">-4.30%</td><td>2</td><td>7.4%</td></tr>
+<tr><td>CRML</td><td>33.0</td><td>$12.35</td><td>$13.40</td><td>$442.20</td><td class="pos">$+34.67</td><td class="pos">+8.51%</td><td>None</td><td>8.8%</td></tr>
+<tr><td>FLNC</td><td>34.0</td><td>$12.19</td><td>$12.57</td><td>$427.38</td><td class="pos">$+12.92</td><td class="pos">+3.12%</td><td>None</td><td>8.5%</td></tr>
+<tr><td>IHRT</td><td>67.0</td><td>$6.11</td><td>$6.34</td><td>$424.78</td><td class="pos">$+15.38</td><td class="pos">+3.76%</td><td>None</td><td>8.5%</td></tr>
+<tr><td>MXL</td><td>5.0</td><td>$70.07</td><td>$81.73</td><td>$408.65</td><td class="pos">$+58.32</td><td class="pos">+16.65%</td><td>2</td><td>8.2%</td></tr>
+<tr><td>NEXT</td><td>52.0</td><td>$8.00</td><td>$7.90</td><td>$410.80</td><td class="neg">$-5.20</td><td class="neg">-1.25%</td><td>None</td><td>8.2%</td></tr>
+<tr><td>ORKA</td><td>5.0</td><td>$68.98</td><td>$68.50</td><td>$342.50</td><td class="neg">$-2.40</td><td class="neg">-0.70%</td><td>2</td><td>6.8%</td></tr>
+<tr><td>PBF</td><td>9.0</td><td>$43.47</td><td>$46.00</td><td>$414.00</td><td class="pos">$+22.77</td><td class="pos">+5.82%</td><td>None</td><td>8.3%</td></tr>
+<tr><td>ZIP</td><td>142.0</td><td>$2.98</td><td>$3.18</td><td>$451.56</td><td class="pos">$+28.40</td><td class="pos">+6.71%</td><td>None</td><td>9.0%</td></tr>
+</tbody></table>
+<div class="footer">Generated by publish_paper_reports.py</div></body></html>
