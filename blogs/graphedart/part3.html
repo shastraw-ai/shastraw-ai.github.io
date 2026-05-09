@@ -248,9 +248,9 @@
 
 <ul>
   <li><strong>The graph is half the magic.</strong> The same model on the same numbers works okay flat, but noticeably better when it can see who each company is connected to. Graph neighborhood features consistently rank among the most important.</li>
-  <li><strong>The LLM is a co-pilot, not the pilot.</strong> The classifier picks the names. The LLM's job is "you have too many of these, trim one" — second-pair-of-eyes work. When it tries to be clever, things go worse.</li>
+  <li><strong>The LLM reads filings, not trades.</strong> An LLM extracts relationships from SEC filings (who supplies whom, who competes with whom), but it doesn't pick stocks or size positions. I tried using it for allocation — but you can't honestly backtest an LLM that knows the future. So it stays in the data pipeline, not the decision loop.</li>
   <li><strong>Build a small army of analysis scripts.</strong> Every claim that something was "better" needed its own script: simulate a week, line up two models on the same days, count winners by hold length, slice picks by confidence. The system got good because I had a dozen ways to ask "is this actually working?" and the answers slowly stopped disagreeing.</li>
-  <li><strong>The edge is small and fragile.</strong> A 1.5x lift sounds impressive until you realize you're still wrong most of the time. The system works because it's <em>consistently</em> slightly right, across enough trades that the law of large numbers kicks in.</li>
+  <li><strong>The edge is small.</strong> 1.5x lift means you're still wrong more often than you're right. But being slightly right, consistently, over hundreds of trades — that's enough. The returns come from volume and discipline, not from any single brilliant pick.</li>
 </ul>
 
 <h2>Where this goes next</h2>

@@ -127,7 +127,7 @@
 
 <ul>
   <li><strong>Prices</strong> — daily bars and intraday snapshots for every stock in the universe</li>
-  <li><strong>News</strong> — articles with ticker associations, plus sentiment scores from a language model</li>
+  <li><strong>News</strong> — headlines with ticker associations, plus sentiment scores from a language model</li>
   <li><strong>SEC filings</strong> — 10-K and 10-Q full text, parsed for inter-company relationships</li>
 </ul>
 
@@ -143,7 +143,7 @@
 
 <h3>News co-occurrence edges</h3>
 
-<p>When two tickers appear in the same news article repeatedly, they get a news edge. The news cutoff is timezone-aware and anchored at market close — so a graph built on Monday doesn't accidentally include Tuesday's pre-market news.</p>
+<p>When two tickers appear in the same news headline repeatedly, they get a news edge. The news cutoff is timezone-aware and anchored at market close — so a graph built on Monday doesn't accidentally include Tuesday's pre-market news.</p>
 
 <h3>Filing relationship edges</h3>
 
@@ -159,7 +159,7 @@
    │         rebuilt daily on a rolling window                │
    └─────────────────────────────────────────────────────────┘</div>
 
-<p>The graph is rebuilt from scratch each day, so it always reflects the most recent relationships. The key design choice: <strong>price co-movement is the backbone</strong>. News and filing edges enrich the graph with context — sentiment, supply-chain structure — but a pair of stocks only stays in the graph if they also have a co-movement edge. If two companies are mentioned in the same article but their prices never lead or lag each other, that edge is dropped. Stocks with no co-movement connections at all are removed entirely and aren't even sent to model training. The model only sees stocks the graph says are part of an active lead-lag network.</p>
+<p>The graph is rebuilt from scratch each day, so it always reflects the most recent relationships. The key design choice: <strong>price co-movement is the backbone</strong>. News and filing edges enrich the graph with context — sentiment, supply-chain structure — but a pair of stocks only stays in the graph if they also have a co-movement edge. If two companies are mentioned in the same headline but their prices never lead or lag each other, that edge is dropped. Stocks with no co-movement connections at all are removed entirely and aren't even sent to model training. The model only sees stocks the graph says are part of an active lead-lag network.</p>
 
 <h2>From graph to features</h2>
 
