@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Graphedart — Part 3: Does it actually work?</title>
+<style>
+  :root {
+    --fg: #1d1d1f;
+    --muted: #5f6368;
+    --bg: #fafaf7;
+    --accent: #0a6e3a;
+    --rule: #e6e3dc;
+    --code-bg: #f1efe9;
+    --warn: #b85c00;
+  }
+  html { background: var(--bg); }
+  body {
+    color: var(--fg);
+    font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", system-ui, sans-serif;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 56px 24px 96px;
+  }
+  h1 {
+    font-size: 34px;
+    line-height: 1.2;
+    margin: 0 0 8px;
+    letter-spacing: -0.02em;
+  }
+  h2 {
+    font-size: 22px;
+    margin: 44px 0 12px;
+    letter-spacing: -0.01em;
+  }
+  h3 { font-size: 18px; margin: 28px 0 8px; }
+  p { margin: 0 0 16px; }
+  .lede { color: var(--muted); font-size: 18px; margin-bottom: 0; }
+  .meta { color: var(--muted); font-size: 14px; margin: 4px 0 32px; }
+  hr { border: 0; border-top: 1px solid var(--rule); margin: 36px 0; }
+  code {
+    background: var(--code-bg);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 0.92em;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+  blockquote {
+    margin: 20px 0;
+    padding: 4px 16px;
+    border-left: 3px solid var(--accent);
+    color: var(--muted);
+    font-style: italic;
+  }
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+    margin: 20px 0;
+  }
+  .stat {
+    background: white;
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+  .stat .num {
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--accent);
+  }
+  .stat .lab {
+    font-size: 12px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-top: 2px;
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 16px 0 8px;
+    font-size: 15px;
+  }
+  th, td {
+    text-align: left;
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--rule);
+  }
+  th {
+    font-weight: 600;
+    color: var(--muted);
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  .caption { color: var(--muted); font-size: 13px; margin: 4px 0 24px; }
+  ul { padding-left: 22px; }
+  li { margin: 6px 0; }
+  .callout {
+    margin: 20px 0;
+    padding: 16px 20px;
+    background: #fff8f0;
+    border: 1px solid #f0dcc0;
+    border-radius: 8px;
+  }
+  .callout .title {
+    font-weight: 600;
+    color: var(--warn);
+    margin-bottom: 4px;
+  }
+  .series-nav {
+    margin-top: 48px;
+    padding: 20px 24px;
+    background: white;
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+  }
+  .series-nav .label {
+    font-size: 12px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 10px;
+  }
+  .series-nav a {
+    display: block;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+    margin: 6px 0;
+  }
+  .series-nav a:hover { text-decoration: underline; }
+  .series-nav .current {
+    color: var(--fg);
+    font-weight: 600;
+  }
+</style>
+</head>
+<body>
+
+<h1>Does it actually work?</h1>
+<p class="lede">Evaluation, the gotchas that almost invalidated everything, and what happened with real (play) money.</p>
+<p class="meta">Part 3 of 3 · April 2026</p>
+
+<hr>
+
+<h2>Walk-forward evaluation</h2>
+
+<p>To check whether the model picks winners, I march it forward through history one week at a time. For each week, I retrain on everything up to that point and score names for the following week — names it has never seen. Tens of thousands of predictions, all on data the model didn't get to peek at.</p>
+
+<p>The base rate is how often a randomly chosen stock hit a significant move. The model's most-confident picks hit that threshold roughly 1.5-1.7x more often than the base rate, depending on the horizon and direction.</p>
+
+<p>The lift is real but modest. The model isn't clairvoyant — it's slightly better than random in a systematic, consistent way. That's the whole game.</p>
+
+<hr>
+
+<h2>Gotcha #1: Slippage eats your returns</h2>
+
+<p>Here's the thing nobody tells you until you try to trade a model: the price you think you'll get and the price you actually get are different numbers. That gap is slippage, and for a system that trades small-cap names, it can eat your entire edge.</p>
+
+<p>I ran a study: simulate buying and selling hundreds of stocks at different times of day, measure how far the fill price deviated from the expected price.</p>
+
+<p>The result was dramatic. Slippage at the open was 3-4x worse than near the close. A round-trip at the open cost about 1% — and when your average winner is only a few percent, that's a devastating tax on every trade.</p>
+
+<p>The fix was simple once the data was clear: <strong>stop trading at the open</strong>. The system now runs inference late in the session using a live price snapshot and enters near close. Since the entry price is so close to the anchor the labels are computed from, the gap between "what the model predicted" and "what the trade actually does" is tiny.</p>
+
+<h2>Gotcha #2: The model lies to you if you let it</h2>
+
+<p>Most of the work isn't in the model — it's in making sure it can't peek at data the real bot wouldn't have. Every exciting result starts with "what leaked?" — and there's usually a real leak.</p>
+
+<p>Some examples I caught:</p>
+
+<ul>
+  <li><strong>Graph leakage.</strong> A graph built today quietly bakes in this week's price movements. If you use today's graph to test predictions for this week, the graph already knows the answer. Fix: rebuild the graph as it would have looked <em>before</em> the test period, for every test period, every time.</li>
+  <li><strong>News cutoff drift.</strong> News timestamps need to be anchored at market close, timezone-aware. Get this wrong by even a few hours and features can see tomorrow's pre-market news.</li>
+  <li><strong>Feature date off-by-one.</strong> All features must use data through the previous close only. The open price on the prediction date is future data — you don't know it when you'd be making the prediction.</li>
+  <li><strong>Systemic day contamination.</strong> Broad market selloffs need special handling, and the flag for "yesterday was systemic" has to be shifted forward by one day — at market open you don't yet know if today will be systemic.</li>
+</ul>
+
+<p>Each of these bugs, when present, inflated backtested accuracy by several percentage points. The model looked amazing. Then you'd fix the leak and the numbers would drop to something honest.</p>
+
+<h2>Gotcha #3: A good model doesn't mean good trades</h2>
+
+<p>A model with 1.7x lift on 1-day up predictions is great. But between "this stock will probably go up" and "I made money" sits an ocean of practical problems:</p>
+
+<ul>
+  <li><strong>Position sizing.</strong> Putting too much in one high-conviction name is a great idea until it gaps down. Per-name weight caps are essential.</li>
+  <li><strong>Cash management.</strong> You can't buy everything the model likes. A cash reserve plus a daily budget cap keeps the system from going all-in on Monday and having nothing left for Friday's better picks.</li>
+  <li><strong>Small-cap traps.</strong> Very cheap stocks are volatile enough to trigger drawdown protection on normal fluctuation, forcing a liquidation that locks in losses. Adding a minimum price filter made a surprisingly large difference.</li>
+  <li><strong>The honest backtest.</strong> A simulation with pretend prices prints beautiful numbers. The real test uses the same picking logic, same sizing, same cash limits, same "skip if it already moved." A green light only counts if the simulation would have made the same trades the live bot would.</li>
+</ul>
+
+<h2>Gotcha #4: Retraining can make things worse</h2>
+
+<p>Every Saturday the system retrains. New data, new hyperparameters, fresh model. But "new" doesn't mean "better" — sometimes the new model overfits a recent regime or loses sensitivity to patterns the old one caught.</p>
+
+<p>The fix is a promotion gate: the new model and the old model both run a backtest on the same recent period. If the new model doesn't beat the old one, nothing changes. Monday's automation picks up whichever model is current.</p>
+
+<p>This sounds obvious in retrospect. Without the gate, every retrain is a coin flip disguised as progress.</p>
+
+<hr>
+
+<h2>The backtest journey</h2>
+
+<p>The numbers didn't start good. The first honest backtest — with all leakage fixed — came in at roughly <strong>-10%</strong> over the test period. The model had an edge on paper, but the trading simulation lost money.</p>
+
+<p>Tuning the model and the trading parameters (hold period, position sizing, how many picks per day) got it to about <strong>+70%</strong>. That felt great — until I added realistic slippage. With open-of-day entry and proper spread modeling, it crashed back to <strong>-40%</strong>. Slippage at the open was eating the entire edge and then some.</p>
+
+<p>Three changes turned it around: moving entry to near market close (cutting round-trip slippage by ~70%), adding a reranker to improve precision at the top of the list, and filtering out stocks under $5 (which were volatile enough to trigger false drawdown kills). The result over 21 weeks:</p>
+
+<div class="stat-grid">
+  <div class="stat"><div class="num">+167%</div><div class="lab">Cumulative return</div></div>
+  <div class="stat"><div class="num">5.02</div><div class="lab">Sharpe ratio</div></div>
+  <div class="stat"><div class="num">-16.2%</div><div class="lab">Max drawdown</div></div>
+  <div class="stat"><div class="num">368</div><div class="lab">Trades</div></div>
+</div>
+<p class="caption">Dec 6, 2025 &ndash; Apr 25, 2026. 21-week walk-forward backtest with weekly retraining, realistic slippage, close-mode entry. $10k starting equity.</p>
+
+<p>A fair objection: the last four weeks of that period included a strong market rally that flatters the numbers. Here are the metrics for the 17 weeks before the rally kicked in:</p>
+
+<div class="stat-grid">
+  <div class="stat"><div class="num">+59%</div><div class="lab">Cumulative return</div></div>
+  <div class="stat"><div class="num">3.85</div><div class="lab">Sharpe ratio</div></div>
+  <div class="stat"><div class="num">-9.9%</div><div class="lab">Max drawdown</div></div>
+  <div class="stat"><div class="num">17 wks</div><div class="lab">Pre-rally period</div></div>
+</div>
+<p class="caption">Dec 6, 2025 &ndash; Mar 28, 2026, before the April rally. Same configuration, same slippage model.</p>
+
+<p>Still strong, and arguably more honest — the system was making money in a flatter market, not just riding a rising tide.</p>
+
+<div class="callout">
+  <div class="title">A caveat on these numbers</div>
+  <p style="margin:0">This backtest covers roughly the last year of market data — that's all I have access to on free-tier data plans. It doesn't include 2022's bear market or 2023's rate-hike volatility. I honestly don't know how the system would behave in a sustained crash or a prolonged sideways grind. Paper trading is the next best thing to find out.</p>
+</div>
+
+<p>The strategy in plain English: let the winners run, don't let the losers run at all.</p>
+
+<h2>Paper trading</h2>
+
+<p>The system now runs on a paper-trading account, fully automated. A handful of new buys per day, short hold period, capped concurrent positions. Entry near close with bracket orders for downside protection.</p>
+
+<hr>
+
+<h2>What I've learned</h2>
+
+<ul>
+  <li><strong>The graph is half the magic.</strong> The same model on the same numbers works okay flat, but noticeably better when it can see who each company is connected to. Graph neighborhood features consistently rank among the most important.</li>
+  <li><strong>The LLM is a co-pilot, not the pilot.</strong> The classifier picks the names. The LLM's job is "you have too many of these, trim one" — second-pair-of-eyes work. When it tries to be clever, things go worse.</li>
+  <li><strong>Build a small army of analysis scripts.</strong> Every claim that something was "better" needed its own script: simulate a week, line up two models on the same days, count winners by hold length, slice picks by confidence. The system got good because I had a dozen ways to ask "is this actually working?" and the answers slowly stopped disagreeing.</li>
+  <li><strong>The edge is small and fragile.</strong> A 1.5x lift sounds impressive until you realize you're still wrong most of the time. The system works because it's <em>consistently</em> slightly right, across enough trades that the law of large numbers kicks in.</li>
+</ul>
+
+<h2>Where this goes next</h2>
+
+<p>The system is running on play money — fully automated, retraining weekly, promoting only when the new model proves itself. Real money starts June 4th, when the <a href="https://alpaca.markets/blog/finra-retires-the-pdt-rule-introducing-alpacas-new-intraday-margin-framework/">PDT rule goes away</a> and I can start small instead of needing $25k upfront.</p>
+
+<p>The meta-point I keep coming back to: the gap between "I know graphs and ML" and "I'm running an automated trading system" used to be enormous, and most of it was domain knowledge. That gap is much smaller now. Fantasy football, but for stocks. Without ever having watched a game.</p>
+
+<div class="series-nav">
+  <div class="label">This series</div>
+  <a href="index.html">Part 1: Fantasy football, but for stocks</a>
+  <a href="part2.html">Part 2: The data and the graph</a>
+  <span class="current">Part 3: Does it actually work?</span>
+</div>
+
+</body>
+</html>

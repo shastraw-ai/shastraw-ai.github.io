@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Graphedart — Part 2: The data and the graph</title>
+<style>
+  :root {
+    --fg: #1d1d1f;
+    --muted: #5f6368;
+    --bg: #fafaf7;
+    --accent: #0a6e3a;
+    --rule: #e6e3dc;
+    --code-bg: #f1efe9;
+  }
+  html { background: var(--bg); }
+  body {
+    color: var(--fg);
+    font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", system-ui, sans-serif;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 56px 24px 96px;
+  }
+  h1 {
+    font-size: 34px;
+    line-height: 1.2;
+    margin: 0 0 8px;
+    letter-spacing: -0.02em;
+  }
+  h2 {
+    font-size: 22px;
+    margin: 44px 0 12px;
+    letter-spacing: -0.01em;
+  }
+  h3 { font-size: 18px; margin: 28px 0 8px; }
+  p { margin: 0 0 16px; }
+  .lede { color: var(--muted); font-size: 18px; margin-bottom: 0; }
+  .meta { color: var(--muted); font-size: 14px; margin: 4px 0 32px; }
+  hr { border: 0; border-top: 1px solid var(--rule); margin: 36px 0; }
+  code {
+    background: var(--code-bg);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 0.92em;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+  blockquote {
+    margin: 20px 0;
+    padding: 4px 16px;
+    border-left: 3px solid var(--accent);
+    color: var(--muted);
+    font-style: italic;
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 16px 0 8px;
+    font-size: 15px;
+  }
+  th, td {
+    text-align: left;
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--rule);
+  }
+  th {
+    font-weight: 600;
+    color: var(--muted);
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  .caption { color: var(--muted); font-size: 13px; margin: 4px 0 24px; }
+  ul { padding-left: 22px; }
+  li { margin: 6px 0; }
+  .diagram {
+    background: white;
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin: 20px 0;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    white-space: pre;
+    overflow-x: auto;
+  }
+  .series-nav {
+    margin-top: 48px;
+    padding: 20px 24px;
+    background: white;
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+  }
+  .series-nav .label {
+    font-size: 12px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 10px;
+  }
+  .series-nav a {
+    display: block;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+    margin: 6px 0;
+  }
+  .series-nav a:hover { text-decoration: underline; }
+  .series-nav .current {
+    color: var(--fg);
+    font-weight: 600;
+  }
+</style>
+</head>
+<body>
+
+<h1>The data and the graph</h1>
+<p class="lede">How ~3,000 stocks become a network, and how that network becomes a trading signal.</p>
+<p class="meta">Part 2 of 3 · April 2026</p>
+
+<hr>
+
+<h2>Four data sources, one graph</h2>
+
+<p>The system watches the Russell 3000 — roughly 3,000 US stocks. Every trading day, it pulls data from several sources:</p>
+
+<ul>
+  <li><strong>Prices</strong> — daily bars and intraday snapshots for every stock in the universe</li>
+  <li><strong>News</strong> — articles with ticker associations, plus sentiment scores from a language model</li>
+  <li><strong>SEC filings</strong> — 10-K and 10-Q full text, parsed for inter-company relationships</li>
+</ul>
+
+<p>The filings get an extra pass: an LLM reads each one and extracts structured relationships between companies — who's a supplier, customer, competitor. These are cached so the LLM only runs once per filing.</p>
+
+<h2>Building the graph</h2>
+
+<p>Every day, the system builds a directed graph over a rolling window. Three types of edges connect companies:</p>
+
+<h3>Price co-movement edges</h3>
+
+<p>If stock A has a big move on day D, and stock B has a big move shortly after, that's a co-movement event. "Big move" is adaptive per stock. If this lead-lag pattern repeats enough times in the window, a directed edge is created from A to B. The direction matters: A leading B is independent of B leading A.</p>
+
+<h3>News co-occurrence edges</h3>
+
+<p>When two tickers appear in the same news article repeatedly, they get a news edge. The news cutoff is timezone-aware and anchored at market close — so a graph built on Monday doesn't accidentally include Tuesday's pre-market news.</p>
+
+<h3>Filing relationship edges</h3>
+
+<p>These come from the LLM extraction step. "AAPL is a customer of TSM" becomes a directed edge with a confidence score. Only relationships above a confidence threshold make it in.</p>
+
+<div class="diagram">         Price edges          News edges         Filing edges
+       (lead-lag)          (co-mentioned)       (LLM-extracted)
+           |                    |                     |
+           v                    v                     v
+   ┌─────────────────────────────────────────────────────────┐
+   │              Directed temporal graph                     │
+   │         thousands of nodes, tens of thousands of edges  │
+   │         rebuilt daily on a rolling window                │
+   └─────────────────────────────────────────────────────────┘</div>
+
+<p>The graph is rebuilt from scratch each day, so it always reflects the most recent relationships. The key design choice: <strong>price co-movement is the backbone</strong>. News and filing edges enrich the graph with context — sentiment, supply-chain structure — but a pair of stocks only stays in the graph if they also have a co-movement edge. If two companies are mentioned in the same article but their prices never lead or lag each other, that edge is dropped. Stocks with no co-movement connections at all are removed entirely and aren't even sent to model training. The model only sees stocks the graph says are part of an active lead-lag network.</p>
+
+<h2>From graph to features</h2>
+
+<p>For each stock on each day, the system extracts features from the graph. The idea: a stock's neighborhood tells you things that the stock's own price history doesn't.</p>
+
+<p>Features fall into a few broad groups:</p>
+
+<ul>
+  <li><strong>Own price</strong> — the stock's recent returns, volatility, and gap behavior</li>
+  <li><strong>Graph neighborhood</strong> — what the stock's immediate and second-degree neighbors have been doing recently. This is the graph's unique contribution: a stock's neighbors tell you things its own price history doesn't.</li>
+  <li><strong>News</strong> — direct sentiment and volume, plus how news propagates through the graph</li>
+  <li><strong>Structural</strong> — the stock's position in the graph topology (how central, how connected)</li>
+</ul>
+
+<p>Recent observations are weighted more heavily than older ones, so the graph stays responsive to the current market regime without losing longer-term structure.</p>
+
+<h2>The models</h2>
+
+<p>A small set of gradient-boosted classifiers, each answering a slightly different question: will this stock have a significant move up (or down) over the next few days? Separate models for different horizons and directions, combined into a single buy score via a simple formula — not an ensemble in the stacking sense, just a weighted combination of the individual model outputs.</p>
+
+<p>The models are intentionally simple — the complexity budget goes into the features, not the model architecture. Early stopping on a held-out validation set, calibrated probabilities, and that's about it.</p>
+
+<h2>Walk-forward training</h2>
+
+<p>The system never trains on a single fixed split. Instead, it tiles short test windows backward from the most recent data:</p>
+
+<div class="diagram">  ◄── time ──────────────────────────────────────────────────►
+
+  iter 0: [════════ train ════════][val][cal][ test ]
+  iter 1:        [════════ train ════════][val][cal][ test ]
+  iter 2:               [════════ train ════════][val][cal][ test ]
+  ...
+  iter N:                                                  [ test ] ◄── freshest
+
+  Each iteration: retrain from scratch on its own training window.
+  Hyperparameters are tuned per iteration.
+  An embargo gap sits between train and test (prevents label leakage).</div>
+
+<p>The backward tiling is deliberate — it anchors the last iteration to the freshest data, so the ensemble's recency weighting puts the most weight where it matters most.</p>
+
+<h2>Combining iterations</h2>
+
+<p>At inference time, all iterations contribute. Recent iterations count more — the latest model has significantly more weight than one from several weeks ago. Each iteration's individual model outputs are combined via the same formula, then the iteration-level scores are blended with a recency bias.</p>
+
+<h2>The reranker</h2>
+
+<p>The combined score produces a ranked list, but rank quality at the very top matters more than overall ranking accuracy. A second-stage learning-to-rank model re-orders the top of the list using actual forward returns as relevance labels, with heavy weighting toward the best-performing stocks.</p>
+
+<p>If the reranker can't beat a simple "sort by combined score" on the test set, it's discarded and inference falls back to the base ranking. No harm done.</p>
+
+<h2>Weekly retrain</h2>
+
+<p>Every Saturday, the full pipeline retrains: feature extraction, hyperparameter tuning, model assembly, and reranker training. The new model runs a backtest against the same period the current production model was tested on. If the new model wins, it gets promoted. If it loses, nothing changes. Monday's automation picks up whichever model is current.</p>
+
+<p>How well all of this actually works — and the many ways it can go wrong — is in <a href="part3.html">Part 3</a>.</p>
+
+<div class="series-nav">
+  <div class="label">This series</div>
+  <a href="index.html">Part 1: Fantasy football, but for stocks</a>
+  <span class="current">Part 2: The data and the graph</span>
+  <a href="part3.html">Part 3: Does it actually work?</a>
+</div>
+
+</body>
+</html>

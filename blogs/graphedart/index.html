@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Graphedart — Part 1: Fantasy football, but for stocks</title>
+<style>
+  :root {
+    --fg: #1d1d1f;
+    --muted: #5f6368;
+    --bg: #fafaf7;
+    --accent: #0a6e3a;
+    --rule: #e6e3dc;
+    --code-bg: #f1efe9;
+  }
+  html { background: var(--bg); }
+  body {
+    color: var(--fg);
+    font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", system-ui, sans-serif;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 56px 24px 96px;
+  }
+  h1 {
+    font-size: 34px;
+    line-height: 1.2;
+    margin: 0 0 8px;
+    letter-spacing: -0.02em;
+  }
+  h2 {
+    font-size: 22px;
+    margin: 44px 0 12px;
+    letter-spacing: -0.01em;
+  }
+  h3 { font-size: 18px; margin: 28px 0 8px; }
+  p { margin: 0 0 16px; }
+  .lede { color: var(--muted); font-size: 18px; margin-bottom: 0; }
+  .meta { color: var(--muted); font-size: 14px; margin: 4px 0 32px; }
+  hr { border: 0; border-top: 1px solid var(--rule); margin: 36px 0; }
+  code {
+    background: var(--code-bg);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 0.92em;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+  blockquote {
+    margin: 20px 0;
+    padding: 4px 16px;
+    border-left: 3px solid var(--accent);
+    color: var(--muted);
+    font-style: italic;
+  }
+  ul { padding-left: 22px; }
+  li { margin: 6px 0; }
+  .series-nav {
+    margin-top: 48px;
+    padding: 20px 24px;
+    background: white;
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+  }
+  .series-nav .label {
+    font-size: 12px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 10px;
+  }
+  .series-nav a {
+    display: block;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+    margin: 6px 0;
+  }
+  .series-nav a:hover { text-decoration: underline; }
+  .series-nav .current {
+    color: var(--fg);
+    font-weight: 600;
+  }
+</style>
+</head>
+<body>
+
+<h1>Fantasy football, but for stocks</h1>
+<p class="lede">I don't really know how to trade. So I built something that does.</p>
+<p class="meta">Part 1 of 3 · April 2026</p>
+
+<hr>
+
+<h2>The premise</h2>
+
+<p>I don't have a finance background. I've never placed a trade I'm proud of. What I do know is graphs and machine learning, and I've had a hunch sitting in my head for a while: <em>the market is a network</em>. Companies don't move in isolation — suppliers, customers, competitors, sector cousins all drag each other around in patterns that look exactly like the kind of thing a graph would notice.</p>
+
+<p>This is basically how I think about fantasy football. I don't watch the games; I look at the stats and try to be slightly less wrong than the average manager. <strong>Graphedart</strong> is the same idea, applied to a domain I know even less about.</p>
+
+<blockquote>
+The bet: if I can't beat the market by understanding it, maybe I can beat <em>my own trades</em> by routing every decision through a system that sees the whole network at once.
+</blockquote>
+
+<h2>Why now</h2>
+
+<p>I would not have started this project three years ago. Not because of the engineering — I can set up a data pipeline and a training loop. The blocker was everything I didn't know about finance. I didn't know what a Sharpe ratio was. I didn't know about the PDT rule. I didn't know that slippage at the open could eat an entire edge, or that a "great" backtest can quietly cheat in a dozen different ways.</p>
+
+<p>Those aren't engineering problems. They're domain knowledge problems — the kind where you don't even know you're missing something until the money disappears. The time it would have taken me to discover and internalize all of that would have killed the project long before it produced anything useful.</p>
+
+<p>And then there's timing. On June 4th, FINRA <a href="https://alpaca.markets/blog/finra-retires-the-pdt-rule-introducing-alpacas-new-intraday-margin-framework/">retires the Pattern Day Trader rule</a>. Until now, you needed $25,000 in your account to day-trade freely — a significant amount to risk on a fully untested algorithm. With the PDT rule gone, I can start with a much smaller amount and scale up only if the live results justify it. That changes the risk calculus completely.</p>
+
+<h2>How Claude Code changed the calculus</h2>
+
+<p>What changed is that the domain knowledge gap became crossable. I can describe what I want — "make sure the backtest can't peek at tomorrow's news" — and get working code that handles timezone conversions and DST edge cases I wouldn't have thought of. When the first backtest looked too good, I could say "what could be leaking?" and get a list of specific things to check.</p>
+
+<p>The iteration loop shrank from weeks to hours. I'd learn something new about markets (slippage is worse at the open, the PDT rule limits day trades, bracket orders exist), describe the constraint, review the diff, and move on. The financial domain knowledge I was missing didn't have to come before the code — it could come alongside it.</p>
+
+<p>I wrote maybe 5% of the code by hand. But every design decision — what edges to put in the graph, how to avoid leakage at time boundaries, when to retrain, how to size positions — those are mine. Claude Code is the contractor; I'm the architect who's learning the building codes as we go.</p>
+
+<h2>What I ended up with</h2>
+
+<p>The system runs fully automated, Monday through Friday. Every morning it pulls fresh data and builds the day's graph. In the afternoon it scores every stock, picks the top handful, and submits orders near close. An intraday monitor watches for portfolio-level drawdowns. Every Saturday it retrains from scratch, and the new version only goes live if it proves it's better.</p>
+
+<p>The details of how all that works are in <a href="part2.html">Part 2: The data and the graph</a>. The results — and all the ways I got burned getting there — are in <a href="part3.html">Part 3: Does it actually work?</a></p>
+
+<div class="series-nav">
+  <div class="label">This series</div>
+  <span class="current">Part 1: Fantasy football, but for stocks</span>
+  <a href="part2.html">Part 2: The data and the graph</a>
+  <a href="part3.html">Part 3: Does it actually work?</a>
+</div>
+
+</body>
+</html>
