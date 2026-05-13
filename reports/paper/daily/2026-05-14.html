@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paper Trading — 2026-05-14</title>
+<style>
+:root {
+    --bg: #1a1a2e;
+    --panel: #16213e;
+    --panel2: #0f3460;
+    --text: #e0e0e0;
+    --muted: #888;
+    --pos: #4caf50;
+    --neg: #ef5350;
+    --blue: #42a5f5;
+    --border: #333;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+    font-size: 13px;
+    padding: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+h1 { font-size: 20px; margin-bottom: 6px; color: var(--blue); }
+h2 { font-size: 16px; margin: 24px 0 12px; color: var(--blue); border-bottom: 1px solid var(--border); padding-bottom: 4px; }
+h3 { font-size: 14px; margin: 16px 0 8px; color: var(--text); }
+.subtitle { color: var(--muted); font-size: 12px; margin-bottom: 20px; }
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 12px;
+    margin-bottom: 20px;
+}
+.metric-card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 12px;
+}
+.metric-label { font-size: 11px; color: var(--muted); text-transform: uppercase; }
+.metric-value { font-size: 18px; font-weight: bold; margin-top: 4px; }
+.pos { color: var(--pos); }
+.neg { color: var(--neg); }
+.neutral { color: var(--text); }
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0;
+    font-size: 12px;
+}
+th, td {
+    padding: 6px 10px;
+    text-align: right;
+    border-bottom: 1px solid var(--border);
+}
+th { background: var(--panel2); color: var(--muted); font-weight: 600; text-transform: uppercase; font-size: 11px; }
+td:first-child, th:first-child { text-align: left; }
+tr:hover { background: rgba(66, 165, 245, 0.05); }
+.chart-container { margin: 16px 0; text-align: center; }
+.chart-container img { max-width: 100%; border-radius: 6px; }
+.alert-box {
+    background: rgba(239, 83, 80, 0.15);
+    border: 1px solid var(--neg);
+    border-radius: 6px;
+    padding: 12px;
+    margin: 12px 0;
+}
+.info-box {
+    background: rgba(66, 165, 245, 0.1);
+    border: 1px solid var(--blue);
+    border-radius: 6px;
+    padding: 12px;
+    margin: 12px 0;
+}
+.footer { margin-top: 32px; padding-top: 12px; border-top: 1px solid var(--border); color: var(--muted); font-size: 11px; }
+</style>
+<style>
+.nav { display: flex; gap: 16px; margin-bottom: 20px; }
+.nav a { color: var(--blue); text-decoration: none; font-size: 13px; }
+.nav a:hover { text-decoration: underline; }
+td a { color: var(--blue); text-decoration: none; }
+td a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<div class="nav">
+    <a href="../index.html">&larr; Overview</a>
+    <a href="2026-05-13.html">&larr; 2026-05-13</a>
+</div>
+<h1>Paper Trading &mdash; 2026-05-14</h1>
+<div class="subtitle">Report generated 2026-05-13T12:32:04.938981</div>
+<h2>Day Summary</h2>
+<div class="metrics-grid">
+<div class="metric-card"><div class="metric-label">Opened</div><div class="metric-value neutral">4</div></div>
+<div class="metric-card"><div class="metric-label">Closed</div><div class="metric-value neutral">0</div></div>
+<div class="metric-card"><div class="metric-label">Capital Deployed</div><div class="metric-value pos">$3,397.68</div></div>
+<div class="metric-card"><div class="metric-label">Realized P&L</div><div class="metric-value neutral">$0.00</div></div>
+<div class="metric-card"><div class="metric-label">Unrealized P&L</div><div class="metric-value neg">$-4.70</div></div>
+<div class="metric-card"><div class="metric-label">Equity</div><div class="metric-value pos">$10,398.07</div></div>
+<div class="metric-card"><div class="metric-label">Cash</div><div class="metric-value pos">$7,174.67</div></div>
+<div class="metric-card"><div class="metric-label">Invested</div><div class="metric-value pos">$3,223.40</div></div>
+<div class="metric-card"><div class="metric-label">Cash %</div><div class="metric-value neutral">69.0%</div></div>
+<div class="metric-card"><div class="metric-label">SPY Return</div><div class="metric-value neutral">—</div></div>
+</div>
+<h2>Buys</h2>
+<table><thead><tr><th>Ticker</th><th>Entry Price</th><th>Size ($)</th><th>Weight (%)</th><th>Score</th></tr></thead><tbody>
+<tr><td><a href="https://finance.yahoo.com/quote/CABO" target="_blank" rel="noopener">CABO</a></td><td>$53.26</td>
+<td>$852.16</td>
+<td>8.2%</td>
+<td>2.2912</td></tr>
+<tr><td><a href="https://finance.yahoo.com/quote/GRPN" target="_blank" rel="noopener">GRPN</a></td><td>$18.31</td>
+<td>$842.26</td>
+<td>8.1%</td>
+<td>2.2533</td></tr>
+<tr><td><a href="https://finance.yahoo.com/quote/EYE" target="_blank" rel="noopener">EYE</a></td><td>$16.32</td>
+<td>$848.38</td>
+<td>8.2%</td>
+<td>2.2368</td></tr>
+<tr><td><a href="https://finance.yahoo.com/quote/EOSE" target="_blank" rel="noopener">EOSE</a></td><td>$8.22</td>
+<td>$854.88</td>
+<td>8.2%</td>
+<td>2.1954</td></tr>
+</tbody></table>
+<h2>Sells</h2>
+<div class="info-box">No positions closed.</div>
+<h2>Execution</h2>
+<table><thead><tr><th>Ticker</th><th>Qty</th><th>Proposal Est.</th><th>Live Price</th><th>Slippage (%)</th><th>Slippage (bps)</th><th>Actual Cost</th></tr></thead><tbody>
+<tr><td><a href="https://finance.yahoo.com/quote/CABO" target="_blank" rel="noopener">CABO</a></td><td>16</td><td>$53.58</td><td>$53.26</td><td class="pos">-0.60%</td><td class="pos">-60.0</td><td>$852.16</td></tr>
+<tr><td><a href="https://finance.yahoo.com/quote/GRPN" target="_blank" rel="noopener">GRPN</a></td><td>46</td><td>$18.56</td><td>$18.31</td><td class="pos">-1.35%</td><td class="pos">-135.0</td><td>$842.26</td></tr>
+<tr><td><a href="https://finance.yahoo.com/quote/EYE" target="_blank" rel="noopener">EYE</a></td><td>52</td><td>$16.51</td><td>$16.32</td><td class="pos">-1.18%</td><td class="pos">-118.0</td><td>$848.38</td></tr>
+<tr><td><a href="https://finance.yahoo.com/quote/EOSE" target="_blank" rel="noopener">EOSE</a></td><td>104</td><td>$8.26</td><td>$8.22</td><td class="pos">-0.48%</td><td class="pos">-48.0</td><td>$854.88</td></tr>
+</tbody></table>
+<h3>Top 10 Candidates</h3>
+<table><thead><tr><th>Rank</th><th>Ticker</th><th>Score</th><th>Base Score</th><th>Status</th></tr></thead><tbody>
+<tr><td>1</td><td><a href="https://finance.yahoo.com/quote/CABO" target="_blank" rel="noopener">CABO</a></td><td>2.2912</td><td>0.3987</td><td class="pos">submitted</td></tr>
+<tr><td>2</td><td><a href="https://finance.yahoo.com/quote/GRPN" target="_blank" rel="noopener">GRPN</a></td><td>2.2533</td><td>0.3976</td><td class="pos">submitted</td></tr>
+<tr><td>3</td><td><a href="https://finance.yahoo.com/quote/EYE" target="_blank" rel="noopener">EYE</a></td><td>2.2368</td><td>0.3872</td><td class="pos">submitted</td></tr>
+<tr><td>4</td><td><a href="https://finance.yahoo.com/quote/EOSE" target="_blank" rel="noopener">EOSE</a></td><td>2.1954</td><td>0.3995</td><td class="pos">submitted</td></tr>
+<tr><td>5</td><td><a href="https://finance.yahoo.com/quote/CVRX" target="_blank" rel="noopener">CVRX</a></td><td>2.1694</td><td>0.3970</td><td class="neutral">skipped (daily cap 4 filled)</td></tr>
+<tr><td>6</td><td><a href="https://finance.yahoo.com/quote/MEI" target="_blank" rel="noopener">MEI</a></td><td>2.1138</td><td>0.4050</td><td class="neutral">skipped (daily cap 4 filled)</td></tr>
+<tr><td>7</td><td><a href="https://finance.yahoo.com/quote/NVTS" target="_blank" rel="noopener">NVTS</a></td><td>2.1044</td><td>0.3964</td><td class="neutral">skipped (daily cap 4 filled)</td></tr>
+<tr><td>8</td><td><a href="https://finance.yahoo.com/quote/AGL" target="_blank" rel="noopener">AGL</a></td><td>2.0836</td><td>0.3936</td><td class="neutral">skipped (daily cap 4 filled)</td></tr>
+<tr><td>9</td><td><a href="https://finance.yahoo.com/quote/LUNR" target="_blank" rel="noopener">LUNR</a></td><td>2.0611</td><td>0.3995</td><td class="neutral">skipped (daily cap 4 filled)</td></tr>
+<tr><td>10</td><td><a href="https://finance.yahoo.com/quote/VOYG" target="_blank" rel="noopener">VOYG</a></td><td>2.0582</td><td>0.3995</td><td class="neutral">skipped (daily cap 4 filled)</td></tr>
+</tbody></table>
+<h2>Position Tracker</h2>
+<table><thead><tr><th>Ticker</th><th>Entry</th><th>Current</th><th>Return (%)</th><th>Return ($)</th><th>Days</th><th>Status</th></tr></thead><tbody>
+<tr><td><a href="https://finance.yahoo.com/quote/CABO" target="_blank" rel="noopener">CABO</a></td><td>$53.26</td><td>$52.95</td><td class="neg">-0.58%</td><td class="neg">$-4.96</td><td>0</td><td class="pos">open</td></tr>
+<tr><td><a href="https://finance.yahoo.com/quote/GRPN" target="_blank" rel="noopener">GRPN</a></td><td>$18.31</td><td>$18.31</td><td class="neutral">+0.00%</td><td class="neutral">$+0.00</td><td>0</td><td class="pos">open</td></tr>
+<tr><td><a href="https://finance.yahoo.com/quote/EYE" target="_blank" rel="noopener">EYE</a></td><td>$16.32</td><td>$16.31</td><td class="neg">-0.03%</td><td class="neg">$-0.26</td><td>0</td><td class="pos">open</td></tr>
+<tr><td><a href="https://finance.yahoo.com/quote/EOSE" target="_blank" rel="noopener">EOSE</a></td><td>$8.22</td><td>$8.22</td><td class="pos">+0.06%</td><td class="pos">$+0.52</td><td>0</td><td class="pos">open</td></tr>
+</tbody></table>
+<div class="footer">Generated by publish_paper_reports.py</div></body></html>
