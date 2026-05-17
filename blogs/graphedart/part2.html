@@ -202,7 +202,7 @@
 
 <h2>Combining iterations</h2>
 
-<p>At inference time, all iterations contribute. Recent iterations count more — the latest model has significantly more weight than one from several weeks ago. Each iteration's individual model outputs are combined via the same formula, then the iteration-level scores are blended with a recency bias.</p>
+<p>At inference time, only the last few iterations contribute — keeping too many stale models in the ensemble adds noise. Recent iterations count more via a recency half-life, so the latest model has significantly more weight than one from two weeks ago. Each iteration's individual model outputs are combined via the same formula, then the iteration-level scores are blended with the recency weighting.</p>
 
 <h2>The reranker</h2>
 

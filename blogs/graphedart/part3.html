@@ -193,7 +193,28 @@
   <li><strong>The honest backtest.</strong> A simulation with pretend prices prints beautiful numbers. The real test uses the same picking logic, same sizing, same cash limits, same "skip if it already moved." A green light only counts if the simulation would have made the same trades the live bot would.</li>
 </ul>
 
-<h2>Gotcha #4: Retraining can make things worse</h2>
+<h2>Gotcha #4: Cumulative returns lie</h2>
+
+<p>This one almost cost me weeks of wrong decisions. I ran a parameter sweep — dozens of configurations simulated over 23 weeks — and sorted by cumulative return to find the "best" config. The winner was obvious: <strong>+232%</strong> versus the runner-up's +143%. Case closed, right?</p>
+
+<p>Wrong. When I dug into the weekly breakdown, the +232% config had a single week that returned <strong>+48.7%</strong>. That one week — the very first week, where the model was essentially bootstrapping with no history — contributed 47% of the entire cumulative return. Remove it and the "winner" drops to +123%, well below the runner-up.</p>
+
+<p>The problem is compounding. An early outlier inflates everything after it because all subsequent returns multiply on a larger base. A config that gets lucky once on week 1 will dominate any sweep sorted by cumulative return, even if it underperforms in 20 of 23 weeks.</p>
+
+<p>The fix was adding outlier-resistant metrics to the sweep analysis:</p>
+
+<ul>
+  <li><strong>Median weekly return</strong> — what does a "normal" week look like? (Both configs were ~4%, essentially tied)</li>
+  <li><strong>Trimmed cumulative</strong> — drop the top-2 and bottom-2 weeks, then compound what's left</li>
+  <li><strong>Leave-one-out minimum</strong> — the worst cumulative return you'd get if you removed any single week. If removing one week tanks your result, your "edge" is really just luck.</li>
+  <li><strong>Top-1 share</strong> — what percentage of your cumulative return comes from the single best week? Above 30% is a red flag.</li>
+</ul>
+
+<p>After switching to these metrics, the "winner" changed — and the more boring, consistent config (+143%, Sharpe 4.31, no single week contributing more than 14% of total returns) is what's now running in production.</p>
+
+<p>The meta-lesson: cumulative return is the metric everyone reports, but it's the worst metric for comparing configurations. It rewards variance, not skill.</p>
+
+<h2>Gotcha #5: Retraining can make things worse</h2>
 
 <p>Every Saturday the system retrains. New data, new hyperparameters, fresh model. But "new" doesn't mean "better" — sometimes the new model overfits a recent regime or loses sensitivity to patterns the old one caught.</p>
 
@@ -209,27 +230,29 @@
 
 <p>Tuning the model and the trading parameters (hold period, position sizing, how many picks per day) got it to about <strong>+70%</strong>. That felt great — until I added realistic slippage. With open-of-day entry and proper spread modeling, it crashed back to <strong>-40%</strong>. Slippage at the open was eating the entire edge and then some.</p>
 
-<p>Three changes turned it around: moving entry to near market close (cutting round-trip slippage by ~70%), adding a reranker to improve precision at the top of the list, and filtering out stocks under $5 (which were volatile enough to trigger false drawdown kills). The result over 21 weeks:</p>
+<p>Three changes turned it around: moving entry to near market close (cutting round-trip slippage by ~70%), adding a reranker to improve precision at the top of the list, and filtering out stocks under $5 (which were volatile enough to trigger false drawdown kills). The result over 23 weeks:</p>
 
 <div class="stat-grid">
-  <div class="stat"><div class="num">+167%</div><div class="lab">Cumulative return</div></div>
-  <div class="stat"><div class="num">5.02</div><div class="lab">Sharpe ratio</div></div>
-  <div class="stat"><div class="num">-16.2%</div><div class="lab">Max drawdown</div></div>
-  <div class="stat"><div class="num">368</div><div class="lab">Trades</div></div>
+  <div class="stat"><div class="num">+143%</div><div class="lab">Cumulative return</div></div>
+  <div class="stat"><div class="num">4.31</div><div class="lab">Sharpe ratio</div></div>
+  <div class="stat"><div class="num">-11.5%</div><div class="lab">Max drawdown</div></div>
+  <div class="stat"><div class="num">303</div><div class="lab">Trades</div></div>
 </div>
-<p class="caption">Dec 6, 2025 &ndash; Apr 25, 2026. 21-week walk-forward backtest with weekly retraining, realistic slippage, close-mode entry. $10k starting equity.</p>
+<p class="caption">Dec 6, 2025 &ndash; May 9, 2026. 23-week walk-forward backtest with weekly retraining, realistic slippage, close-mode entry. $10k starting equity.</p>
 
-<p>A fair objection: the last four weeks of that period included a strong market rally that flatters the numbers. Here are the metrics for the 17 weeks before the rally kicked in:</p>
+<p>These are <em>not</em> the biggest numbers in the sweep — a different configuration hit +232%. But as I described in Gotcha #4 above, that config's returns were 47% attributable to a single lucky week. The numbers here come from the most consistent config: median weekly return of 4.0%, no single week contributing more than 14% of the total, Calmar ratio of 55.7.</p>
+
+<p>A fair objection: the last six weeks of that period included a strong market rally that flatters the numbers. Here are the metrics for the 17 weeks before the rally kicked in:</p>
 
 <div class="stat-grid">
-  <div class="stat"><div class="num">+59%</div><div class="lab">Cumulative return</div></div>
-  <div class="stat"><div class="num">3.85</div><div class="lab">Sharpe ratio</div></div>
-  <div class="stat"><div class="num">-9.9%</div><div class="lab">Max drawdown</div></div>
+  <div class="stat"><div class="num">+56%</div><div class="lab">Cumulative return</div></div>
+  <div class="stat"><div class="num">3.27</div><div class="lab">Sharpe ratio</div></div>
+  <div class="stat"><div class="num">-7.5%</div><div class="lab">Max drawdown</div></div>
   <div class="stat"><div class="num">17 wks</div><div class="lab">Pre-rally period</div></div>
 </div>
 <p class="caption">Dec 6, 2025 &ndash; Mar 28, 2026, before the April rally. Same configuration, same slippage model.</p>
 
-<p>Still strong, and arguably more honest — the system was making money in a flatter market, not just riding a rising tide.</p>
+<p>Still strong, and arguably more honest — the system was making money in a choppy market, not just riding a rising tide.</p>
 
 <div class="callout">
   <div class="title">A caveat on these numbers</div>
@@ -250,6 +273,7 @@
   <li><strong>The graph is half the magic.</strong> The same model on the same numbers works okay flat, but noticeably better when it can see who each company is connected to. Graph neighborhood features consistently rank among the most important.</li>
   <li><strong>The LLM reads filings, not trades.</strong> An LLM extracts relationships from SEC filings (who supplies whom, who competes with whom), but it doesn't pick stocks or size positions. I tried using it for allocation — but you can't honestly backtest an LLM that knows the future. So it stays in the data pipeline, not the decision loop.</li>
   <li><strong>Build a small army of analysis scripts.</strong> Every claim that something was "better" needed its own script: simulate a week, line up two models on the same days, count winners by hold length, slice picks by confidence. The system got good because I had a dozen ways to ask "is this actually working?" and the answers slowly stopped disagreeing.</li>
+  <li><strong>Don't trust the headline number.</strong> Cumulative return is a terrible comparison metric. One lucky week early in the backtest inflates everything after it via compounding. Median weekly return, trimmed cumulative, and leave-one-out analysis tell you whether you have a genuine edge or just a fortunate accident.</li>
   <li><strong>The edge is small.</strong> 1.5x lift means you're still wrong more often than you're right. But being slightly right, consistently, over hundreds of trades — that's enough. The returns come from volume and discipline, not from any single brilliant pick.</li>
 </ul>
 
