@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Live Trading — 2026-06-05</title>
+<style>
+:root {
+    --bg: #1a1a2e;
+    --panel: #16213e;
+    --panel2: #0f3460;
+    --text: #e0e0e0;
+    --muted: #888;
+    --pos: #4caf50;
+    --neg: #ef5350;
+    --blue: #42a5f5;
+    --border: #333;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+    font-size: 13px;
+    padding: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+h1 { font-size: 20px; margin-bottom: 6px; color: var(--blue); }
+h2 { font-size: 16px; margin: 24px 0 12px; color: var(--blue); border-bottom: 1px solid var(--border); padding-bottom: 4px; }
+h3 { font-size: 14px; margin: 16px 0 8px; color: var(--text); }
+.subtitle { color: var(--muted); font-size: 12px; margin-bottom: 20px; }
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 12px;
+    margin-bottom: 20px;
+}
+.metric-card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 12px;
+}
+.metric-label { font-size: 11px; color: var(--muted); text-transform: uppercase; }
+.metric-value { font-size: 18px; font-weight: bold; margin-top: 4px; }
+.pos { color: var(--pos); }
+.neg { color: var(--neg); }
+.neutral { color: var(--text); }
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0;
+    font-size: 12px;
+}
+th, td {
+    padding: 6px 10px;
+    text-align: right;
+    border-bottom: 1px solid var(--border);
+}
+th { background: var(--panel2); color: var(--muted); font-weight: 600; text-transform: uppercase; font-size: 11px; }
+td:first-child, th:first-child { text-align: left; }
+tr:hover { background: rgba(66, 165, 245, 0.05); }
+.chart-container { margin: 16px 0; text-align: center; }
+.chart-container img { max-width: 100%; border-radius: 6px; }
+.alert-box {
+    background: rgba(239, 83, 80, 0.15);
+    border: 1px solid var(--neg);
+    border-radius: 6px;
+    padding: 12px;
+    margin: 12px 0;
+}
+.info-box {
+    background: rgba(66, 165, 245, 0.1);
+    border: 1px solid var(--blue);
+    border-radius: 6px;
+    padding: 12px;
+    margin: 12px 0;
+}
+.footer { margin-top: 32px; padding-top: 12px; border-top: 1px solid var(--border); color: var(--muted); font-size: 11px; }
+</style>
+<style>
+.nav { display: flex; gap: 16px; margin-bottom: 20px; }
+.nav a { color: var(--blue); text-decoration: none; font-size: 13px; }
+.nav a:hover { text-decoration: underline; }
+td a { color: var(--blue); text-decoration: none; }
+td a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<div class="nav">
+    <a href="../index.html">&larr; Overview</a>
+    <a href="2026-06-04.html">&larr; 2026-06-04</a>
+</div>
+<h1>Live Trading &mdash; 2026-06-05</h1>
+<div class="subtitle">Report generated 2026-06-04T12:32:10.359984</div>
+<h2>Day Summary</h2>
+<div class="metrics-grid">
+<div class="metric-card"><div class="metric-label">Opened</div><div class="metric-value neutral">3</div></div>
+<div class="metric-card"><div class="metric-label">Closed</div><div class="metric-value neutral">0</div></div>
+<div class="metric-card"><div class="metric-label">Capital Deployed</div><div class="metric-value pos">$2,885.69</div></div>
+<div class="metric-card"><div class="metric-label">Realized P&L</div><div class="metric-value neutral">$0.00</div></div>
+<div class="metric-card"><div class="metric-label">Unrealized P&L</div><div class="metric-value pos">$6.92</div></div>
+<div class="metric-card"><div class="metric-label">Equity</div><div class="metric-value pos">$10,000.00</div></div>
+<div class="metric-card"><div class="metric-label">Cash</div><div class="metric-value pos">$10,000.00</div></div>
+<div class="metric-card"><div class="metric-label">Invested</div><div class="metric-value neutral">$0.00</div></div>
+<div class="metric-card"><div class="metric-label">Cash %</div><div class="metric-value neutral">100.0%</div></div>
+<div class="metric-card"><div class="metric-label">SPY Return</div><div class="metric-value neutral">—</div></div>
+</div>
+<h2>Buys</h2>
+<table><thead><tr><th>Ticker</th><th>Entry Price</th><th>Size ($)</th><th>Weight (%)</th><th>Score</th><th>Buy Reason</th></tr></thead><tbody>
+<tr><td><a href="https://finance.yahoo.com/quote/VSH" target="_blank" rel="noopener">VSH</a></td><td>$66.00</td>
+<td>$924.07</td>
+<td>9.2%</td>
+<td>2.3991</td>
+<td>Reranker 5.0x lift · 22% 1d / 26% 2d up · drivers: own range 1d, own avg range 5d, avg trade size ratio 5d</td></tr>
+<tr><td><a href="https://finance.yahoo.com/quote/NVTS" target="_blank" rel="noopener">NVTS</a></td><td>$31.34</td>
+<td>$971.54</td>
+<td>9.7%</td>
+<td>2.2354</td>
+<td>Reranker 5.5x lift · 22% 1d / 12% 2d up · drivers: own range 1d, own avg range 5d, own avg range 20d</td></tr>
+<tr><td><a href="https://finance.yahoo.com/quote/DMRC" target="_blank" rel="noopener">DMRC</a></td><td>$14.56</td>
+<td>$990.08</td>
+<td>9.9%</td>
+<td>2.1317</td>
+<td>Reranker 5.2x lift · 29% 1d / 21% 2d up · drivers: own avg range 20d, own avg range 5d, own range 1d</td></tr>
+</tbody></table>
+<h2>Sells</h2>
+<div class="info-box">No positions closed.</div>
+<h2>Execution</h2>
+<table><thead><tr><th>Ticker</th><th>Qty</th><th>Proposal Est.</th><th>Live Price</th><th>Slippage (%)</th><th>Slippage (bps)</th><th>Actual Cost</th></tr></thead><tbody>
+<tr><td><a href="https://finance.yahoo.com/quote/VSH" target="_blank" rel="noopener">VSH</a></td><td>14</td><td>$68.54</td><td>$66.00</td><td class="pos">-3.70%</td><td class="pos">-370.0</td><td>$924.07</td></tr>
+<tr><td><a href="https://finance.yahoo.com/quote/NVTS" target="_blank" rel="noopener">NVTS</a></td><td>31</td><td>$31.83</td><td>$31.34</td><td class="pos">-1.54%</td><td class="pos">-154.0</td><td>$971.54</td></tr>
+<tr><td><a href="https://finance.yahoo.com/quote/DMRC" target="_blank" rel="noopener">DMRC</a></td><td>68</td><td>$14.67</td><td>$14.56</td><td class="pos">-0.75%</td><td class="pos">-75.0</td><td>$990.08</td></tr>
+</tbody></table>
+<h3>Top 10 Candidates</h3>
+<table><thead><tr><th>Rank</th><th>Ticker</th><th>Score</th><th>Base Score</th><th>Status</th><th>Buy Reason</th></tr></thead><tbody>
+<tr><td>1</td><td><a href="https://finance.yahoo.com/quote/VSH" target="_blank" rel="noopener">VSH</a></td><td>2.3991</td><td>0.4825</td><td class="pos">submitted</td><td>Reranker 5.0x lift · 22% 1d / 26% 2d up · drivers: own range 1d, own avg range 5d, avg trade size ratio 5d</td></tr>
+<tr><td>2</td><td><a href="https://finance.yahoo.com/quote/NVTS" target="_blank" rel="noopener">NVTS</a></td><td>2.2354</td><td>0.4055</td><td class="pos">submitted</td><td>Reranker 5.5x lift · 22% 1d / 12% 2d up · drivers: own range 1d, own avg range 5d, own avg range 20d</td></tr>
+<tr><td>3</td><td><a href="https://finance.yahoo.com/quote/DMRC" target="_blank" rel="noopener">DMRC</a></td><td>2.1317</td><td>0.4061</td><td class="pos">submitted</td><td>Reranker 5.2x lift · 29% 1d / 21% 2d up · drivers: own avg range 20d, own avg range 5d, own range 1d</td></tr>
+<tr><td>4</td><td><a href="https://finance.yahoo.com/quote/ABSI" target="_blank" rel="noopener">ABSI</a></td><td>2.0820</td><td>0.4468</td><td class="neutral">skipped (daily cap 3 filled)</td><td>Reranker 4.7x lift · 23% 1d / 18% 2d up · drivers: own avg range 5d, own range 1d, avg trade size ratio 5d</td></tr>
+<tr><td>5</td><td><a href="https://finance.yahoo.com/quote/PENG" target="_blank" rel="noopener">PENG</a></td><td>2.0615</td><td>0.4792</td><td class="neutral">skipped (daily cap 3 filled)</td><td>Reranker 4.3x lift · 24% 1d / 26% 2d up · drivers: own range 1d, own avg range 5d, avg trade size ratio 5d</td></tr>
+<tr><td>6</td><td><a href="https://finance.yahoo.com/quote/VOYG" target="_blank" rel="noopener">VOYG</a></td><td>2.0128</td><td>0.4317</td><td class="neutral">skipped (daily cap 3 filled)</td><td>Reranker 4.7x lift · 29% 1d / 23% 2d up · drivers: own range 1d, own avg range 5d, avg trade size ratio 5d</td></tr>
+<tr><td>7</td><td><a href="https://finance.yahoo.com/quote/REPL" target="_blank" rel="noopener">REPL</a></td><td>2.0039</td><td>0.4672</td><td class="neutral">skipped (daily cap 3 filled)</td><td>Reranker 4.3x lift · 29% 1d / 23% 2d up · drivers: own avg range 5d, own range 1d, avg trade size ratio 5d</td></tr>
+<tr><td>8</td><td><a href="https://finance.yahoo.com/quote/RPD" target="_blank" rel="noopener">RPD</a></td><td>1.9903</td><td>0.4071</td><td class="neutral">skipped (daily cap 3 filled)</td><td>Reranker 4.9x lift · 24% 1d / 18% 2d up · drivers: avg trade size ratio 5d, own avg range 5d, own avg range 20d</td></tr>
+<tr><td>9</td><td><a href="https://finance.yahoo.com/quote/SMTC" target="_blank" rel="noopener">SMTC</a></td><td>1.9756</td><td>0.4817</td><td class="neutral">skipped (daily cap 3 filled)</td><td>Reranker 4.1x lift · 22% 1d / 26% 2d up · drivers: avg trade size ratio 5d, own range 1d, own avg range 5d</td></tr>
+</tbody></table>
+<h2>Position Tracker</h2>
+<table><thead><tr><th>Ticker</th><th>Entry</th><th>Current</th><th>Return (%)</th><th>Return ($)</th><th>Days</th><th>Status</th></tr></thead><tbody>
+<tr><td><a href="https://finance.yahoo.com/quote/VSH" target="_blank" rel="noopener">VSH</a></td><td>$66.00</td><td>$66.00</td><td class="neutral">+0.00%</td><td class="neutral">$+0.00</td><td>0</td><td class="pos">open</td></tr>
+<tr><td><a href="https://finance.yahoo.com/quote/NVTS" target="_blank" rel="noopener">NVTS</a></td><td>$31.34</td><td>$31.39</td><td class="pos">+0.15%</td><td class="pos">$+1.48</td><td>0</td><td class="pos">open</td></tr>
+<tr><td><a href="https://finance.yahoo.com/quote/DMRC" target="_blank" rel="noopener">DMRC</a></td><td>$14.56</td><td>$14.64</td><td class="pos">+0.55%</td><td class="pos">$+5.44</td><td>0</td><td class="pos">open</td></tr>
+</tbody></table>
+<div class="footer">Generated by publish_paper_reports.py</div></body></html>
