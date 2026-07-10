@@ -55,9 +55,9 @@ footer { margin-top: 32px; color: var(--muted); font-size: 12px; }
 <body>
 
         <h1>gtrade weekly retrain status</h1>
-        <div class="subtitle">Generated 2026-07-04 19:23</div>
+        <div class="subtitle">Generated 2026-07-09 19:32</div>
         <div class="summary">
-          <div><strong>Currently promoted:</strong> <code>../rolling_2026-07-02</code></div>
+          <div><strong>Currently promoted:</strong> <code>../rolling_2026-07-08</code></div>
           <div class="muted" style="margin-top:4px">Last 12 runs shown, most recent first.</div>
         </div>
         <h2>Run history</h2>
@@ -77,6 +77,31 @@ footer { margin-top: 32px; color: var(--muted); font-size: 12px; }
           </thead>
           <tbody>
             
+            <tr>
+              <td class="run-date">2026-07-08</td>
+              <td><span class="badge badge-promote">promote</span></td>
+              <td class="num">+1.9824<div class="muted" style="font-size:11px">raw +0.0627</div></td>
+              <td class="num">+3.9126<div class="muted" style="font-size:11px">raw +0.6231</div></td>
+              <td class="num neg">-1.9302</td>
+              <td class="num muted">-2.0000</td>
+              <td class="muted">6</td>
+              <td class="muted">2026-06-25 → 2026-07-06 (7 days)</td>
+              <td>
+            <details>
+              <summary>Per side × horizon (42 new / 42 old rows)</summary>
+              <div>
+                <p class="muted" style="margin:0 0 6px"><strong>NEW:</strong> <span class="chip pos">B1d: +0.0308</span> <span class="chip neg">B2d: -0.0264</span> <span class="chip pos">B3d: +0.0584</span> <span class="chip audit" title="sell rows are audit-only — not in the promotion gate">S1d: -0.0184 <em>audit</em></span> <span class="chip audit" title="sell rows are audit-only — not in the promotion gate">S2d: -0.0478 <em>audit</em></span> <span class="chip audit" title="sell rows are audit-only — not in the promotion gate">S3d: -0.0523 <em>audit</em></span></p>
+                <p class="muted" style="margin:0 0 6px"><strong>OLD:</strong> <span class="chip pos">B1d: +0.1361</span> <span class="chip pos">B2d: +0.2154</span> <span class="chip pos">B3d: +0.2715</span> <span class="chip audit" title="sell rows are audit-only — not in the promotion gate">S1d: -0.0203 <em>audit</em></span> <span class="chip audit" title="sell rows are audit-only — not in the promotion gate">S2d: -0.0530 <em>audit</em></span> <span class="chip audit" title="sell rows are audit-only — not in the promotion gate">S3d: -0.0537 <em>audit</em></span></p>
+                <p class="muted" style="margin:8px 0 6px"><strong>NEW options path:</strong> <span class="chip">B1d: MFE +5.7% · MAE -3.8% · TTT 0.0d · >3% 66% · >5% 47%</span> <span class="chip">B2d: MFE +7.8% · MAE -6.8% · TTT 0.0d · >3% 79% · >5% 57%</span> <span class="chip">B3d: MFE +10.1% · MAE -8.1% · TTT 0.0d · >3% 83% · >5% 69%</span> <span class="chip">S1d: MFE +0.9% · MAE -1.4% · TTT 0.0d · >3% 4% · >5% 0%</span> <span class="chip">S2d: MFE +1.4% · MAE -2.3% · TTT 0.8d · >3% 14% · >5% 4%</span> <span class="chip">S3d: MFE +1.8% · MAE -2.9% · TTT 1.4d · >3% 23% · >5% 6%</span></p>
+                <p class="muted" style="margin:0 0 6px"><strong>OLD options path:</strong> <span class="chip">B1d: MFE +6.5% · MAE -3.3% · TTT 0.0d · >3% 73% · >5% 52%</span> <span class="chip">B2d: MFE +9.4% · MAE -4.8% · TTT 0.0d · >3% 85% · >5% 67%</span> <span class="chip">B3d: MFE +11.7% · MAE -5.7% · TTT 0.0d · >3% 87% · >5% 74%</span> <span class="chip">S1d: MFE +0.9% · MAE -1.5% · TTT 0.0d · >3% 5% · >5% 0%</span> <span class="chip">S2d: MFE +1.4% · MAE -2.4% · TTT 0.6d · >3% 11% · >5% 4%</span> <span class="chip">S3d: MFE +1.8% · MAE -3.0% · TTT 1.3d · >3% 21% · >5% 6%</span></p>
+                <p class="muted" style="margin:8px 0 6px"><strong>Last-iter PR-AUC (test):</strong> <span class="chip">up_1d: 0.304</span> <span class="chip">up_2d: 0.345</span> <span class="chip">down_2d: 0.224</span></p>
+                <p class="path">NEW: /Users/obuli/gtrade/graphedart/data/ml/rolling_2026-07-08</p>
+                <p class="path">OLD: /Users/obuli/gtrade/graphedart/data/ml/rolling_2026-07-02</p>
+              </div>
+            </details>
+        </td>
+            </tr>
+        
             <tr>
               <td class="run-date">2026-07-02</td>
               <td><span class="badge badge-promote">promote</span></td>
@@ -347,31 +372,6 @@ footer { margin-top: 32px; color: var(--muted); font-size: 12px; }
                 <p class="muted" style="margin:8px 0 6px"><strong>Last-iter PR-AUC (test):</strong> <span class="chip">up_1d: 0.217</span> <span class="chip">up_2d: 0.223</span> <span class="chip">down_2d: 0.340</span></p>
                 <p class="path">NEW: /Users/obuli/gtrade/graphedart/data/ml/rolling_2026-05-04</p>
                 <p class="path">OLD: /Users/obuli/gtrade/graphedart/data/ml/rolling_2026-05-01</p>
-              </div>
-            </details>
-        </td>
-            </tr>
-        
-            <tr>
-              <td class="run-date">2026-05-01</td>
-              <td><span class="badge badge-promote">promote</span></td>
-              <td class="num">-6.2800<div class="muted" style="font-size:11px">raw -0.1882</div></td>
-              <td class="num">-14.9300<div class="muted" style="font-size:11px">raw -0.1259</div></td>
-              <td class="num pos">+8.6500</td>
-              <td class="num muted">0.0000</td>
-              <td class="muted">6</td>
-              <td class="muted">2026-04-21 → 2026-04-29 (7 days)</td>
-              <td>
-            <details>
-              <summary>Per side × horizon (42 new / 42 old rows)</summary>
-              <div>
-                <p class="muted" style="margin:0 0 6px"><strong>NEW:</strong> <span class="chip neg">B1d: -0.0496</span> <span class="chip neg">B2d: -0.0483</span> <span class="chip neg">B3d: -0.0903</span> <span class="chip audit" title="sell rows are audit-only — not in the promotion gate">S1d: +0.0152 <em>audit</em></span> <span class="chip audit" title="sell rows are audit-only — not in the promotion gate">S2d: +0.0112 <em>audit</em></span> <span class="chip audit" title="sell rows are audit-only — not in the promotion gate">S3d: +0.0140 <em>audit</em></span></p>
-                <p class="muted" style="margin:0 0 6px"><strong>OLD:</strong> <span class="chip pos">B1d: +0.0251</span> <span class="chip neg">B2d: -0.0424</span> <span class="chip neg">B3d: -0.1085</span> <span class="chip audit" title="sell rows are audit-only — not in the promotion gate">S1d: +0.0192 <em>audit</em></span> <span class="chip audit" title="sell rows are audit-only — not in the promotion gate">S2d: +0.0221 <em>audit</em></span> <span class="chip audit" title="sell rows are audit-only — not in the promotion gate">S3d: +0.0336 <em>audit</em></span></p>
-                <p class="muted" style="margin:8px 0 6px"><strong>NEW options path:</strong> <span class="chip">B1d: MFE +4.9% · MAE -4.8% · TTT 0.0d · >3% 59% · >5% 38%</span> <span class="chip">B2d: MFE +7.2% · MAE -6.9% · TTT 0.0d · >3% 68% · >5% 51%</span> <span class="chip">B3d: MFE +8.9% · MAE -8.6% · TTT 0.0d · >3% 72% · >5% 57%</span> <span class="chip">S1d: MFE +1.1% · MAE -1.0% · TTT 0.0d · >3% 7% · >5% 3%</span> <span class="chip">S2d: MFE +1.6% · MAE -1.6% · TTT 0.7d · >3% 17% · >5% 6%</span> <span class="chip">S3d: MFE +2.0% · MAE -2.0% · TTT 0.8d · >3% 22% · >5% 11%</span></p>
-                <p class="muted" style="margin:0 0 6px"><strong>OLD options path:</strong> <span class="chip">B1d: MFE +4.8% · MAE -5.2% · TTT 0.0d · >3% 60% · >5% 34%</span> <span class="chip">B2d: MFE +6.4% · MAE -7.2% · TTT 0.0d · >3% 69% · >5% 44%</span> <span class="chip">B3d: MFE +8.2% · MAE -9.6% · TTT 0.0d · >3% 73% · >5% 52%</span> <span class="chip">S1d: MFE +1.4% · MAE -1.1% · TTT 0.0d · >3% 9% · >5% 3%</span> <span class="chip">S2d: MFE +2.0% · MAE -1.7% · TTT 0.6d · >3% 18% · >5% 6%</span> <span class="chip">S3d: MFE +2.5% · MAE -2.0% · TTT 1.3d · >3% 30% · >5% 11%</span></p>
-                <p class="muted" style="margin:8px 0 6px"><strong>Last-iter PR-AUC (test):</strong> <span class="chip">up_1d: 0.164</span> <span class="chip">up_2d: 0.202</span> <span class="chip">down_2d: 0.328</span></p>
-                <p class="path">NEW: /Users/obuli/gtrade/graphedart/data/ml/rolling_2026-05-01</p>
-                <p class="path">OLD: /Users/obuli/graphedart/data/ml/rolling_2026-04-24_nc</p>
               </div>
             </details>
         </td>
