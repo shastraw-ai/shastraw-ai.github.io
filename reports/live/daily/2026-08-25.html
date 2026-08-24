@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Live Trading — 2026-08-25</title>
+<style>
+:root {
+    --bg: #1a1a2e;
+    --panel: #16213e;
+    --panel2: #0f3460;
+    --text: #e0e0e0;
+    --muted: #888;
+    --pos: #4caf50;
+    --neg: #ef5350;
+    --blue: #42a5f5;
+    --border: #333;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+    font-size: 13px;
+    padding: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+h1 { font-size: 20px; margin-bottom: 6px; color: var(--blue); }
+h2 { font-size: 16px; margin: 24px 0 12px; color: var(--blue); border-bottom: 1px solid var(--border); padding-bottom: 4px; }
+h3 { font-size: 14px; margin: 16px 0 8px; color: var(--text); }
+.subtitle { color: var(--muted); font-size: 12px; margin-bottom: 20px; }
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 12px;
+    margin-bottom: 20px;
+}
+.metric-card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 12px;
+}
+.metric-label { font-size: 11px; color: var(--muted); text-transform: uppercase; }
+.metric-value { font-size: 18px; font-weight: bold; margin-top: 4px; }
+.pos { color: var(--pos); }
+.neg { color: var(--neg); }
+.neutral { color: var(--text); }
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0;
+    font-size: 12px;
+}
+th, td {
+    padding: 6px 10px;
+    text-align: right;
+    border-bottom: 1px solid var(--border);
+}
+th { background: var(--panel2); color: var(--muted); font-weight: 600; text-transform: uppercase; font-size: 11px; }
+td:first-child, th:first-child { text-align: left; }
+tr:hover { background: rgba(66, 165, 245, 0.05); }
+.chart-container { margin: 16px 0; text-align: center; }
+.chart-container img { max-width: 100%; border-radius: 6px; }
+.alert-box {
+    background: rgba(239, 83, 80, 0.15);
+    border: 1px solid var(--neg);
+    border-radius: 6px;
+    padding: 12px;
+    margin: 12px 0;
+}
+.info-box {
+    background: rgba(66, 165, 245, 0.1);
+    border: 1px solid var(--blue);
+    border-radius: 6px;
+    padding: 12px;
+    margin: 12px 0;
+}
+.footer { margin-top: 32px; padding-top: 12px; border-top: 1px solid var(--border); color: var(--muted); font-size: 11px; }
+</style>
+<style>
+.nav { display: flex; gap: 16px; margin-bottom: 20px; }
+.nav a { color: var(--blue); text-decoration: none; font-size: 13px; }
+.nav a:hover { text-decoration: underline; }
+td a { color: var(--blue); text-decoration: none; }
+td a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<div class="nav">
+    <a href="../index.html">&larr; Overview</a>
+    <a href="2026-08-24.html">&larr; 2026-08-24</a>
+</div>
+<h1>Live Trading &mdash; 2026-08-25</h1>
+<div class="subtitle">Report generated 2026-08-24T12:33:07.487363</div>
+<h2>Day Summary</h2>
+<div class="metrics-grid">
+<div class="metric-card"><div class="metric-label">Opened</div><div class="metric-value neutral">2</div></div>
+<div class="metric-card"><div class="metric-label">Closed</div><div class="metric-value neutral">0</div></div>
+<div class="metric-card"><div class="metric-label">Capital Deployed</div><div class="metric-value pos">$2,287.10</div></div>
+<div class="metric-card"><div class="metric-label">Realized P&L</div><div class="metric-value neutral">$0.00</div></div>
+<div class="metric-card"><div class="metric-label">Unrealized P&L</div><div class="metric-value neg">$-4.20</div></div>
+<div class="metric-card"><div class="metric-label">Equity</div><div class="metric-value pos">$8,287.67</div></div>
+<div class="metric-card"><div class="metric-label">Cash</div><div class="metric-value pos">$5,654.99</div></div>
+<div class="metric-card"><div class="metric-label">Invested</div><div class="metric-value pos">$2,632.68</div></div>
+<div class="metric-card"><div class="metric-label">Cash %</div><div class="metric-value neutral">68.2%</div></div>
+<div class="metric-card"><div class="metric-label">SPY Return</div><div class="metric-value neutral">—</div></div>
+</div>
+<h2>Buys</h2>
+<table><thead><tr><th>Ticker</th><th>Entry Price</th><th>Size ($)</th><th>Weight (%)</th><th>Score</th><th>Buy Reason</th></tr></thead><tbody>
+<tr><td><a href="https://finance.yahoo.com/quote/AAOI" target="_blank" rel="noopener">AAOI</a></td><td>$110.18</td>
+<td>$1,101.80</td>
+<td>13.3%</td>
+<td>2.4697</td>
+<td>Reranker 4.9x lift · 31% 1d / 36% 2d up · drivers: own avg range 5d, own avg range 20d, own volatility 20d</td></tr>
+<tr><td><a href="https://finance.yahoo.com/quote/AXTI" target="_blank" rel="noopener">AXTI</a></td><td>$65.85</td>
+<td>$1,185.30</td>
+<td>14.3%</td>
+<td>2.4014</td>
+<td>Reranker 4.8x lift · 31% 1d / 36% 2d up · drivers: own avg range 20d, own avg range 5d, own volatility 20d</td></tr>
+</tbody></table>
+<h2>Sells</h2>
+<div class="info-box">No positions closed.</div>
+<h2>Execution</h2>
+<table><thead><tr><th>Ticker</th><th>Qty</th><th>Proposal Est.</th><th>Live Price</th><th>Slippage (%)</th><th>Slippage (bps)</th><th>Actual Cost</th></tr></thead><tbody>
+<tr><td><a href="https://finance.yahoo.com/quote/AAOI" target="_blank" rel="noopener">AAOI</a></td><td>10</td><td>$112.34</td><td>$110.18</td><td class="pos">-1.92%</td><td class="pos">-192.0</td><td>$1,101.80</td></tr>
+<tr><td><a href="https://finance.yahoo.com/quote/AXTI" target="_blank" rel="noopener">AXTI</a></td><td>18</td><td>$66.81</td><td>$65.85</td><td class="pos">-1.44%</td><td class="pos">-144.0</td><td>$1,185.30</td></tr>
+</tbody></table>
+<h3>Top 10 Candidates</h3>
+<table><thead><tr><th>Rank</th><th>Ticker</th><th>Score</th><th>Base Score</th><th>Status</th><th>Buy Reason</th></tr></thead><tbody>
+<tr><td>1</td><td><a href="https://finance.yahoo.com/quote/AAOI" target="_blank" rel="noopener">AAOI</a></td><td>2.4697</td><td>0.4999</td><td class="pos">submitted</td><td>Reranker 4.9x lift · 31% 1d / 36% 2d up · drivers: own avg range 5d, own avg range 20d, own volatility 20d</td></tr>
+<tr><td>2</td><td><a href="https://finance.yahoo.com/quote/AXTI" target="_blank" rel="noopener">AXTI</a></td><td>2.4014</td><td>0.5009</td><td class="pos">submitted</td><td>Reranker 4.8x lift · 31% 1d / 36% 2d up · drivers: own avg range 20d, own avg range 5d, own volatility 20d</td></tr>
+<tr><td>3</td><td><a href="https://finance.yahoo.com/quote/IESC" target="_blank" rel="noopener">IESC</a></td><td>2.2279</td><td>0.4828</td><td class="neutral">skipped (daily cap 2 filled)</td><td>Reranker 4.6x lift · 27% 1d / 35% 2d up · drivers: news guidance recency, own volatility 20d rank, own avg range 20d</td></tr>
+<tr><td>4</td><td><a href="https://finance.yahoo.com/quote/AEVA" target="_blank" rel="noopener">AEVA</a></td><td>2.2236</td><td>0.5036</td><td class="neutral">skipped (daily cap 2 filled)</td><td>Reranker 4.4x lift · 27% 1d / 36% 2d up · drivers: own avg range 20d, own volatility 20d, own return 3d rank</td></tr>
+<tr><td>5</td><td><a href="https://finance.yahoo.com/quote/INOD" target="_blank" rel="noopener">INOD</a></td><td>2.1900</td><td>0.4957</td><td class="neutral">skipped (daily cap 2 filled)</td><td>Reranker 4.4x lift · 31% 1d / 36% 2d up · drivers: own avg range 20d, news analyst recency, range x volume ratio</td></tr>
+<tr><td>6</td><td><a href="https://finance.yahoo.com/quote/MANE" target="_blank" rel="noopener">MANE</a></td><td>2.0974</td><td>0.4810</td><td class="neutral">skipped (daily cap 2 filled)</td><td>Reranker 4.4x lift · 31% 1d / 36% 2d up · drivers: n1 ephemeral signal 1d, down signal decay rate 3d, own gap x range compression</td></tr>
+</tbody></table>
+<h2>Position Tracker</h2>
+<table><thead><tr><th>Ticker</th><th>Entry</th><th>Current</th><th>Return (%)</th><th>Return ($)</th><th>Days</th><th>Status</th></tr></thead><tbody>
+<tr><td><a href="https://finance.yahoo.com/quote/AAOI" target="_blank" rel="noopener">AAOI</a></td><td>$110.18</td><td>$110.12</td><td class="neg">-0.05%</td><td class="neg">$-0.60</td><td>0</td><td class="pos">open</td></tr>
+<tr><td><a href="https://finance.yahoo.com/quote/AXTI" target="_blank" rel="noopener">AXTI</a></td><td>$65.85</td><td>$65.65</td><td class="neg">-0.30%</td><td class="neg">$-3.60</td><td>0</td><td class="pos">open</td></tr>
+</tbody></table>
+<div class="footer">Generated by publish_paper_reports.py</div></body></html>
