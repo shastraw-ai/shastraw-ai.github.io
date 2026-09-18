@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paper Trading — 2026-09-21</title>
+<style>
+:root {
+    --bg: #1a1a2e;
+    --panel: #16213e;
+    --panel2: #0f3460;
+    --text: #e0e0e0;
+    --muted: #888;
+    --pos: #4caf50;
+    --neg: #ef5350;
+    --blue: #42a5f5;
+    --border: #333;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+    font-size: 13px;
+    padding: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+h1 { font-size: 20px; margin-bottom: 6px; color: var(--blue); }
+h2 { font-size: 16px; margin: 24px 0 12px; color: var(--blue); border-bottom: 1px solid var(--border); padding-bottom: 4px; }
+h3 { font-size: 14px; margin: 16px 0 8px; color: var(--text); }
+.subtitle { color: var(--muted); font-size: 12px; margin-bottom: 20px; }
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 12px;
+    margin-bottom: 20px;
+}
+.metric-card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 12px;
+}
+.metric-label { font-size: 11px; color: var(--muted); text-transform: uppercase; }
+.metric-value { font-size: 18px; font-weight: bold; margin-top: 4px; }
+.pos { color: var(--pos); }
+.neg { color: var(--neg); }
+.neutral { color: var(--text); }
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0;
+    font-size: 12px;
+}
+th, td {
+    padding: 6px 10px;
+    text-align: right;
+    border-bottom: 1px solid var(--border);
+}
+th { background: var(--panel2); color: var(--muted); font-weight: 600; text-transform: uppercase; font-size: 11px; }
+td:first-child, th:first-child { text-align: left; }
+tr:hover { background: rgba(66, 165, 245, 0.05); }
+.chart-container { margin: 16px 0; text-align: center; }
+.chart-container img { max-width: 100%; border-radius: 6px; }
+.alert-box {
+    background: rgba(239, 83, 80, 0.15);
+    border: 1px solid var(--neg);
+    border-radius: 6px;
+    padding: 12px;
+    margin: 12px 0;
+}
+.info-box {
+    background: rgba(66, 165, 245, 0.1);
+    border: 1px solid var(--blue);
+    border-radius: 6px;
+    padding: 12px;
+    margin: 12px 0;
+}
+.footer { margin-top: 32px; padding-top: 12px; border-top: 1px solid var(--border); color: var(--muted); font-size: 11px; }
+</style>
+<style>
+.nav { display: flex; gap: 16px; margin-bottom: 20px; }
+.nav a { color: var(--blue); text-decoration: none; font-size: 13px; }
+.nav a:hover { text-decoration: underline; }
+td a { color: var(--blue); text-decoration: none; }
+td a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<div class="nav">
+    <a href="../index.html">&larr; Overview</a>
+    <a href="2026-09-18.html">&larr; 2026-09-18</a>
+</div>
+<h1>Paper Trading &mdash; 2026-09-21</h1>
+<div class="subtitle">Report generated 2026-09-18T12:33:11.205621</div>
+<h2>Day Summary</h2>
+<div class="metrics-grid">
+<div class="metric-card"><div class="metric-label">Opened</div><div class="metric-value neutral">2</div></div>
+<div class="metric-card"><div class="metric-label">Closed</div><div class="metric-value neutral">2</div></div>
+<div class="metric-card"><div class="metric-label">Capital Deployed</div><div class="metric-value pos">$1,259.15</div></div>
+<div class="metric-card"><div class="metric-label">Realized P&L</div><div class="metric-value neg">$-26.31</div></div>
+<div class="metric-card"><div class="metric-label">Unrealized P&L</div><div class="metric-value neg">$-3.79</div></div>
+<div class="metric-card"><div class="metric-label">Equity</div><div class="metric-value pos">$11,311.71</div></div>
+<div class="metric-card"><div class="metric-label">Cash</div><div class="metric-value pos">$1,193.36</div></div>
+<div class="metric-card"><div class="metric-label">Invested</div><div class="metric-value pos">$10,118.35</div></div>
+<div class="metric-card"><div class="metric-label">Cash %</div><div class="metric-value neutral">10.6%</div></div>
+<div class="metric-card"><div class="metric-label">SPY Return</div><div class="metric-value neutral">—</div></div>
+</div>
+<h2>Buys</h2>
+<table><thead><tr><th>Ticker</th><th>Entry Price</th><th>Size ($)</th><th>Weight (%)</th><th>Score</th><th>Buy Reason</th></tr></thead><tbody>
+<tr><td><a href="https://finance.yahoo.com/quote/FWRD" target="_blank" rel="noopener">FWRD</a></td><td>$14.94</td>
+<td>$627.48</td>
+<td>5.5%</td>
+<td>2.4467</td>
+<td>Reranker 4.6x lift · 19% 1d / 48% 2d up · drivers: avg trade size ratio 5d, vol adj ret rank 5d, r down 2d</td></tr>
+<tr><td><a href="https://finance.yahoo.com/quote/FLNC" target="_blank" rel="noopener">FLNC</a></td><td>$7.34</td>
+<td>$631.67</td>
+<td>5.6%</td>
+<td>2.3496</td>
+<td>Reranker 4.4x lift · 16% 1d / 48% 2d up · drivers: own return 20d, weakness streak 5d, own return 3d</td></tr>
+</tbody></table>
+<h2>Sells</h2>
+<table><thead><tr><th>Ticker</th><th>Entry Date</th><th>Entry Price</th><th>Exit Price</th><th>Return (%)</th><th>Return ($)</th><th>Hold Days</th><th>Exit Reason</th></tr></thead><tbody>
+<tr><td><a href="https://finance.yahoo.com/quote/ATRO" target="_blank" rel="noopener">ATRO</a></td><td>2026-09-15</td><td>$66.74</td><td>$65.81</td><td class="neg">-1.39%</td><td class="neg">$-8.32</td><td>3</td><td>Max hold days</td></tr>
+<tr><td><a href="https://finance.yahoo.com/quote/FWRG" target="_blank" rel="noopener">FWRG</a></td><td>2026-09-15</td><td>$10.48</td><td>$10.19</td><td class="neg">-2.81%</td><td class="neg">$-17.99</td><td>3</td><td>Max hold days</td></tr>
+</tbody></table>
+<h2>Execution</h2>
+<table><thead><tr><th>Ticker</th><th>Qty</th><th>Proposal Est.</th><th>Live Price</th><th>Slippage (%)</th><th>Slippage (bps)</th><th>Actual Cost</th></tr></thead><tbody>
+<tr><td><a href="https://finance.yahoo.com/quote/FWRD" target="_blank" rel="noopener">FWRD</a></td><td>42</td><td>$15.04</td><td>$14.94</td><td class="pos">-0.66%</td><td class="pos">-66.0</td><td>$627.48</td></tr>
+<tr><td><a href="https://finance.yahoo.com/quote/FLNC" target="_blank" rel="noopener">FLNC</a></td><td>86</td><td>$7.39</td><td>$7.34</td><td class="pos">-0.61%</td><td class="pos">-61.0</td><td>$631.67</td></tr>
+</tbody></table>
+<h3>Top 10 Candidates</h3>
+<table><thead><tr><th>Rank</th><th>Ticker</th><th>Score</th><th>Base Score</th><th>Status</th><th>Buy Reason</th></tr></thead><tbody>
+<tr><td>1</td><td><a href="https://finance.yahoo.com/quote/FWRD" target="_blank" rel="noopener">FWRD</a></td><td>2.4467</td><td>0.5326</td><td class="pos">submitted</td><td>Reranker 4.6x lift · 19% 1d / 48% 2d up · drivers: avg trade size ratio 5d, vol adj ret rank 5d, r down 2d</td></tr>
+<tr><td>2</td><td><a href="https://finance.yahoo.com/quote/FLNC" target="_blank" rel="noopener">FLNC</a></td><td>2.3496</td><td>0.5355</td><td class="pos">submitted</td><td>Reranker 4.4x lift · 16% 1d / 48% 2d up · drivers: own return 20d, weakness streak 5d, own return 3d</td></tr>
+<tr><td>3</td><td><a href="https://finance.yahoo.com/quote/NGNE" target="_blank" rel="noopener">NGNE</a></td><td>2.3116</td><td>0.5087</td><td class="neutral">skipped (daily cap 2 filled)</td><td>Reranker 4.5x lift · 24% 1d / 22% 2d up · drivers: news analyst recency, node decay avg, own range trend</td></tr>
+<tr><td>4</td><td><a href="https://finance.yahoo.com/quote/RSI" target="_blank" rel="noopener">RSI</a></td><td>2.2949</td><td>0.5004</td><td class="neutral">skipped (daily cap 2 filled)</td><td>Reranker 4.6x lift · 13% 1d / 29% 2d up · drivers: vol adj ret rank 5d, n3 range compression avg, own gap reversal tendency</td></tr>
+<tr><td>5</td><td><a href="https://finance.yahoo.com/quote/ALHC" target="_blank" rel="noopener">ALHC</a></td><td>2.2871</td><td>0.5589</td><td class="neutral">skipped (daily cap 2 filled)</td><td>Reranker 4.1x lift · 27% 1d / 48% 2d up · drivers: own return 20d, news analyst recency, vol adj ret rank 5d</td></tr>
+<tr><td>6</td><td><a href="https://finance.yahoo.com/quote/PAR" target="_blank" rel="noopener">PAR</a></td><td>2.2705</td><td>0.5210</td><td class="neutral">skipped (daily cap 2 filled)</td><td>Reranker 4.4x lift · 19% 1d / 48% 2d up · drivers: weakness streak 5d, avg trade size ratio 5d, own return 20d</td></tr>
+</tbody></table>
+<h2>Position Tracker</h2>
+<table><thead><tr><th>Ticker</th><th>Entry</th><th>Current</th><th>Return (%)</th><th>Return ($)</th><th>Days</th><th>Status</th></tr></thead><tbody>
+<tr><td><a href="https://finance.yahoo.com/quote/FWRD" target="_blank" rel="noopener">FWRD</a></td><td>$14.94</td><td>$14.86</td><td class="neg">-0.54%</td><td class="neg">$-3.36</td><td>0</td><td class="pos">open</td></tr>
+<tr><td><a href="https://finance.yahoo.com/quote/FLNC" target="_blank" rel="noopener">FLNC</a></td><td>$7.34</td><td>$7.34</td><td class="neg">-0.07%</td><td class="neg">$-0.43</td><td>0</td><td class="pos">open</td></tr>
+</tbody></table>
+<div class="footer">Generated by publish_paper_reports.py</div></body></html>
