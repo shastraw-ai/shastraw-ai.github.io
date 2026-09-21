@@ -129,7 +129,7 @@ td a:hover { text-decoration: underline; }
 <body>
 <h1>Paper Trading Dashboard</h1>
 <div class="as-of">
-    Report as of <strong>September 18, 2026 at 01:03 PM</strong>
+    Report as of <strong>September 21, 2026 at 06:03 AM</strong>
     &middot; 2026-05-18 to 2026-09-21 &middot; 29 trading days
 </div>
 
@@ -138,7 +138,7 @@ td a:hover { text-decoration: underline; }
     <div class="strategy-content">
     Graph-based ML ensemble (3 LightGBM classifiers: up_1d, up_2d, down_2d) that ranks stocks
     by predicted 3% upside using a financial knowledge graph built from SEC filings, news, and
-    price co-movements. Second-stage LambdaRank reranker re-orders the top 100 picks.
+    price co-movements. Second-stage LambdaRank reranker re-orders the top 500 picks.
     Model retrained weekly (rolling walk-forward, last 3 iterations ensembled).<br><br>
     <span class="label">Capital:</span> <strong>$10,000</strong> (paper trading on Alpaca)<br>
     <span class="label">Entry:</span> ~3:30 PM ET pre-close, bracket market orders<br>
@@ -161,12 +161,12 @@ td a:hover { text-decoration: underline; }
 <div class="metric-card"><div class="metric-label">Day Change</div><div class="metric-value neg">-1.83%</div></div>
 </div>
 <table><thead><tr><th>Ticker</th><th>Qty</th><th>Avg Entry</th><th>Current</th><th>Unrealized %</th><th>Unrealized P&L</th><th>Bought On</th><th>Predicted For</th><th>Days Held</th><th>Alloc %</th></tr></thead><tbody>
-<tr><td><a href="https://finance.yahoo.com/quote/FWRD" target="_blank" rel="noopener">FWRD</a></td><td>42.0</td><td>$14.87</td><td>$14.89</td><td class="pos">+0.13%</td><td class="pos">$+0.84</td><td>2026-09-18</td><td>2026-09-21</td><td>0</td><td>5.5%</td></tr>
-<tr><td><a href="https://finance.yahoo.com/quote/FLNC" target="_blank" rel="noopener">FLNC</a></td><td>86.0</td><td>$7.35</td><td>$7.34</td><td class="neg">-0.15%</td><td class="neg">$-0.95</td><td>2026-09-18</td><td>2026-09-21</td><td>0</td><td>5.6%</td></tr>
-<tr><td><a href="https://finance.yahoo.com/quote/CSIQ" target="_blank" rel="noopener">CSIQ</a></td><td>192.0</td><td>$11.90</td><td>$11.39</td><td class="neg">-4.29%</td><td class="neg">$-97.92</td><td>2026-09-17</td><td>2026-09-18</td><td>1</td><td>19.2%</td></tr>
-<tr><td><a href="https://finance.yahoo.com/quote/BBW" target="_blank" rel="noopener">BBW</a></td><td>88.0</td><td>$25.71</td><td>$24.71</td><td class="neg">-3.89%</td><td class="neg">$-88.00</td><td>2026-09-17</td><td>2026-09-18</td><td>1</td><td>19.1%</td></tr>
-<tr><td><a href="https://finance.yahoo.com/quote/VCYT" target="_blank" rel="noopener">VCYT</a></td><td>59.0</td><td>$38.48</td><td>$39.61</td><td class="pos">+2.94%</td><td class="pos">$+66.70</td><td>2026-09-16</td><td>2026-09-17</td><td>2</td><td>20.6%</td></tr>
-<tr><td><a href="https://finance.yahoo.com/quote/ALMS" target="_blank" rel="noopener">ALMS</a></td><td>293.0</td><td>$7.88</td><td>$7.73</td><td class="neg">-1.90%</td><td class="neg">$-43.95</td><td>2026-09-16</td><td>2026-09-17</td><td>2</td><td>19.9%</td></tr>
+<tr><td><a href="https://finance.yahoo.com/quote/FWRD" target="_blank" rel="noopener">FWRD</a></td><td>42.0</td><td>$14.87</td><td>$14.89</td><td class="pos">+0.13%</td><td class="pos">$+0.84</td><td>2026-09-18</td><td>2026-09-21</td><td>1</td><td>5.5%</td></tr>
+<tr><td><a href="https://finance.yahoo.com/quote/FLNC" target="_blank" rel="noopener">FLNC</a></td><td>86.0</td><td>$7.35</td><td>$7.34</td><td class="neg">-0.15%</td><td class="neg">$-0.95</td><td>2026-09-18</td><td>2026-09-21</td><td>1</td><td>5.6%</td></tr>
+<tr><td><a href="https://finance.yahoo.com/quote/CSIQ" target="_blank" rel="noopener">CSIQ</a></td><td>192.0</td><td>$11.90</td><td>$11.39</td><td class="neg">-4.29%</td><td class="neg">$-97.92</td><td>2026-09-17</td><td>2026-09-18</td><td>2</td><td>19.2%</td></tr>
+<tr><td><a href="https://finance.yahoo.com/quote/BBW" target="_blank" rel="noopener">BBW</a></td><td>88.0</td><td>$25.71</td><td>$24.71</td><td class="neg">-3.89%</td><td class="neg">$-88.00</td><td>2026-09-17</td><td>2026-09-18</td><td>2</td><td>19.1%</td></tr>
+<tr><td><a href="https://finance.yahoo.com/quote/VCYT" target="_blank" rel="noopener">VCYT</a></td><td>59.0</td><td>$38.48</td><td>$39.61</td><td class="pos">+2.94%</td><td class="pos">$+66.70</td><td>2026-09-16</td><td>2026-09-17</td><td>3</td><td>20.6%</td></tr>
+<tr><td><a href="https://finance.yahoo.com/quote/ALMS" target="_blank" rel="noopener">ALMS</a></td><td>293.0</td><td>$7.88</td><td>$7.73</td><td class="neg">-1.90%</td><td class="neg">$-43.95</td><td>2026-09-16</td><td>2026-09-17</td><td>3</td><td>19.9%</td></tr>
 </tbody></table>
 <h2>Performance Summary</h2>
 <div class="metrics-grid">
@@ -671,4 +671,4 @@ function goToReport() {
 <tr><td>Forced Sell</td><td>2</td><td class="pos">+54.43%</td><td class="pos">+54.43%</td><td class="pos">$+1,002.00</td></tr>
 <tr><td>Max hold days</td><td>35</td><td class="pos">+6.50%</td><td class="pos">+7.26%</td><td class="pos">$+960.12</td></tr>
 </tbody></table>
-<div class="footer">Generated by publish_paper_reports.py &middot; 2026-09-18 13:03:02 &middot; 29 reports</div></body></html>
+<div class="footer">Generated by publish_paper_reports.py &middot; 2026-09-21 06:03:02 &middot; 29 reports</div></body></html>
