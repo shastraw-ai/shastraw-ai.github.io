@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paper Trading — 2026-10-14</title>
+<style>
+:root {
+    --bg: #1a1a2e;
+    --panel: #16213e;
+    --panel2: #0f3460;
+    --text: #e0e0e0;
+    --muted: #888;
+    --pos: #4caf50;
+    --neg: #ef5350;
+    --blue: #42a5f5;
+    --border: #333;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+    font-size: 13px;
+    padding: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+h1 { font-size: 20px; margin-bottom: 6px; color: var(--blue); }
+h2 { font-size: 16px; margin: 24px 0 12px; color: var(--blue); border-bottom: 1px solid var(--border); padding-bottom: 4px; }
+h3 { font-size: 14px; margin: 16px 0 8px; color: var(--text); }
+.subtitle { color: var(--muted); font-size: 12px; margin-bottom: 20px; }
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 12px;
+    margin-bottom: 20px;
+}
+.metric-card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 12px;
+}
+.metric-label { font-size: 11px; color: var(--muted); text-transform: uppercase; }
+.metric-value { font-size: 18px; font-weight: bold; margin-top: 4px; }
+.pos { color: var(--pos); }
+.neg { color: var(--neg); }
+.neutral { color: var(--text); }
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0;
+    font-size: 12px;
+}
+th, td {
+    padding: 6px 10px;
+    text-align: right;
+    border-bottom: 1px solid var(--border);
+}
+th { background: var(--panel2); color: var(--muted); font-weight: 600; text-transform: uppercase; font-size: 11px; }
+td:first-child, th:first-child { text-align: left; }
+tr:hover { background: rgba(66, 165, 245, 0.05); }
+.chart-container { margin: 16px 0; text-align: center; }
+.chart-container img { max-width: 100%; border-radius: 6px; }
+.alert-box {
+    background: rgba(239, 83, 80, 0.15);
+    border: 1px solid var(--neg);
+    border-radius: 6px;
+    padding: 12px;
+    margin: 12px 0;
+}
+.info-box {
+    background: rgba(66, 165, 245, 0.1);
+    border: 1px solid var(--blue);
+    border-radius: 6px;
+    padding: 12px;
+    margin: 12px 0;
+}
+.footer { margin-top: 32px; padding-top: 12px; border-top: 1px solid var(--border); color: var(--muted); font-size: 11px; }
+</style>
+<style>
+.nav { display: flex; gap: 16px; margin-bottom: 20px; }
+.nav a { color: var(--blue); text-decoration: none; font-size: 13px; }
+.nav a:hover { text-decoration: underline; }
+td a { color: var(--blue); text-decoration: none; }
+td a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<div class="nav">
+    <a href="../index.html">&larr; Overview</a>
+    <a href="2026-10-13.html">&larr; 2026-10-13</a>
+</div>
+<h1>Paper Trading &mdash; 2026-10-14</h1>
+<div class="subtitle">Report generated 2026-10-13T12:35:23.514169</div>
+<h2>Day Summary</h2>
+<div class="metrics-grid">
+<div class="metric-card"><div class="metric-label">Opened</div><div class="metric-value neutral">2</div></div>
+<div class="metric-card"><div class="metric-label">Closed</div><div class="metric-value neutral">0</div></div>
+<div class="metric-card"><div class="metric-label">Capital Deployed</div><div class="metric-value pos">$3,784.77</div></div>
+<div class="metric-card"><div class="metric-label">Realized P&L</div><div class="metric-value neutral">$0.00</div></div>
+<div class="metric-card"><div class="metric-label">Unrealized P&L</div><div class="metric-value pos">$1.20</div></div>
+<div class="metric-card"><div class="metric-label">Equity</div><div class="metric-value pos">$9,576.37</div></div>
+<div class="metric-card"><div class="metric-label">Cash</div><div class="metric-value pos">$5,902.03</div></div>
+<div class="metric-card"><div class="metric-label">Invested</div><div class="metric-value pos">$3,674.34</div></div>
+<div class="metric-card"><div class="metric-label">Cash %</div><div class="metric-value neutral">61.6%</div></div>
+<div class="metric-card"><div class="metric-label">SPY Return</div><div class="metric-value neutral">—</div></div>
+</div>
+<h2>Buys</h2>
+<table><thead><tr><th>Ticker</th><th>Entry Price</th><th>Size ($)</th><th>Weight (%)</th><th>Score</th><th>Buy Reason</th></tr></thead><tbody>
+<tr><td><a href="https://finance.yahoo.com/quote/ANGO" target="_blank" rel="noopener">ANGO</a></td><td>$10.95</td>
+<td>$1,905.30</td>
+<td>19.9%</td>
+<td>2.2418</td>
+<td>Reranker 5.0x lift · 33% 1d / 35% 2d up · drivers: news fda recency, systemic direction, own momentum direction streak</td></tr>
+<tr><td><a href="https://finance.yahoo.com/quote/IREN" target="_blank" rel="noopener">IREN</a></td><td>$34.80</td>
+<td>$1,879.47</td>
+<td>19.6%</td>
+<td>2.1712</td>
+<td>Reranker 4.9x lift · 33% 1d / 39% 2d up · drivers: systemic direction, n1 comove recent ratio rank, own return 20d</td></tr>
+</tbody></table>
+<h2>Sells</h2>
+<div class="info-box">No positions closed.</div>
+<h2>Execution</h2>
+<table><thead><tr><th>Ticker</th><th>Qty</th><th>Proposal Est.</th><th>Live Price</th><th>Slippage (%)</th><th>Slippage (bps)</th><th>Actual Cost</th></tr></thead><tbody>
+<tr><td><a href="https://finance.yahoo.com/quote/ANGO" target="_blank" rel="noopener">ANGO</a></td><td>174</td><td>$11.01</td><td>$10.95</td><td class="pos">-0.54%</td><td class="pos">-54.0</td><td>$1,905.30</td></tr>
+<tr><td><a href="https://finance.yahoo.com/quote/IREN" target="_blank" rel="noopener">IREN</a></td><td>54</td><td>$35.44</td><td>$34.80</td><td class="pos">-1.79%</td><td class="pos">-179.0</td><td>$1,879.47</td></tr>
+</tbody></table>
+<h3>Top 10 Candidates</h3>
+<table><thead><tr><th>Rank</th><th>Ticker</th><th>Score</th><th>Base Score</th><th>Status</th><th>Buy Reason</th></tr></thead><tbody>
+<tr><td>1</td><td><a href="https://finance.yahoo.com/quote/ANGO" target="_blank" rel="noopener">ANGO</a></td><td>2.2418</td><td>0.4458</td><td class="pos">submitted</td><td>Reranker 5.0x lift · 33% 1d / 35% 2d up · drivers: news fda recency, systemic direction, own momentum direction streak</td></tr>
+<tr><td>2</td><td><a href="https://finance.yahoo.com/quote/IREN" target="_blank" rel="noopener">IREN</a></td><td>2.1712</td><td>0.4462</td><td class="pos">submitted</td><td>Reranker 4.9x lift · 33% 1d / 39% 2d up · drivers: systemic direction, n1 comove recent ratio rank, own return 20d</td></tr>
+<tr><td>3</td><td><a href="https://finance.yahoo.com/quote/CLSK" target="_blank" rel="noopener">CLSK</a></td><td>2.0895</td><td>0.2949</td><td class="neutral">skipped (buy cap 2 filled)</td><td>Reranker 7.1x lift · 19% 1d / 19% 2d up · drivers: systemic direction, volume rank 1d, topk5 avg confidence</td></tr>
+<tr><td>4</td><td><a href="https://finance.yahoo.com/quote/APLD" target="_blank" rel="noopener">APLD</a></td><td>2.0827</td><td>0.4177</td><td class="neutral">skipped (buy cap 2 filled)</td><td>Reranker 5.0x lift · 20% 1d / 35% 2d up · drivers: systemic direction, volume rank 1d, own vwap deviation</td></tr>
+<tr><td>5</td><td><a href="https://finance.yahoo.com/quote/RCAT" target="_blank" rel="noopener">RCAT</a></td><td>2.0825</td><td>0.2889</td><td class="neutral">skipped (buy cap 2 filled)</td><td>Reranker 7.2x lift · 12% 1d / 19% 2d up · drivers: own avg trade size, own return 20d, systemic direction</td></tr>
+<tr><td>6</td><td><a href="https://finance.yahoo.com/quote/LPTH" target="_blank" rel="noopener">LPTH</a></td><td>2.0708</td><td>0.3618</td><td class="neutral">skipped (buy cap 2 filled)</td><td>Reranker 5.7x lift · 22% 1d / 23% 2d up · drivers: n1 comove recent ratio rank, n2 vs n1 ratio, systemic direction</td></tr>
+</tbody></table>
+<h2>Position Tracker</h2>
+<table><thead><tr><th>Ticker</th><th>Entry</th><th>Current</th><th>Return (%)</th><th>Return ($)</th><th>Days</th><th>Status</th></tr></thead><tbody>
+<tr><td><a href="https://finance.yahoo.com/quote/ANGO" target="_blank" rel="noopener">ANGO</a></td><td>$10.95</td><td>$10.96</td><td class="pos">+0.09%</td><td class="pos">$+1.74</td><td>0</td><td class="pos">open</td></tr>
+<tr><td><a href="https://finance.yahoo.com/quote/IREN" target="_blank" rel="noopener">IREN</a></td><td>$34.80</td><td>$34.80</td><td class="neg">-0.03%</td><td class="neg">$-0.54</td><td>0</td><td class="pos">open</td></tr>
+</tbody></table>
+<div class="footer">Generated by publish_paper_reports.py</div></body></html>
