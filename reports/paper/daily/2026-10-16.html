@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paper Trading — 2026-10-16</title>
+<style>
+:root {
+    --bg: #1a1a2e;
+    --panel: #16213e;
+    --panel2: #0f3460;
+    --text: #e0e0e0;
+    --muted: #888;
+    --pos: #4caf50;
+    --neg: #ef5350;
+    --blue: #42a5f5;
+    --border: #333;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+    font-size: 13px;
+    padding: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+h1 { font-size: 20px; margin-bottom: 6px; color: var(--blue); }
+h2 { font-size: 16px; margin: 24px 0 12px; color: var(--blue); border-bottom: 1px solid var(--border); padding-bottom: 4px; }
+h3 { font-size: 14px; margin: 16px 0 8px; color: var(--text); }
+.subtitle { color: var(--muted); font-size: 12px; margin-bottom: 20px; }
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 12px;
+    margin-bottom: 20px;
+}
+.metric-card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 12px;
+}
+.metric-label { font-size: 11px; color: var(--muted); text-transform: uppercase; }
+.metric-value { font-size: 18px; font-weight: bold; margin-top: 4px; }
+.pos { color: var(--pos); }
+.neg { color: var(--neg); }
+.neutral { color: var(--text); }
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0;
+    font-size: 12px;
+}
+th, td {
+    padding: 6px 10px;
+    text-align: right;
+    border-bottom: 1px solid var(--border);
+}
+th { background: var(--panel2); color: var(--muted); font-weight: 600; text-transform: uppercase; font-size: 11px; }
+td:first-child, th:first-child { text-align: left; }
+tr:hover { background: rgba(66, 165, 245, 0.05); }
+.chart-container { margin: 16px 0; text-align: center; }
+.chart-container img { max-width: 100%; border-radius: 6px; }
+.alert-box {
+    background: rgba(239, 83, 80, 0.15);
+    border: 1px solid var(--neg);
+    border-radius: 6px;
+    padding: 12px;
+    margin: 12px 0;
+}
+.info-box {
+    background: rgba(66, 165, 245, 0.1);
+    border: 1px solid var(--blue);
+    border-radius: 6px;
+    padding: 12px;
+    margin: 12px 0;
+}
+.footer { margin-top: 32px; padding-top: 12px; border-top: 1px solid var(--border); color: var(--muted); font-size: 11px; }
+</style>
+<style>
+.nav { display: flex; gap: 16px; margin-bottom: 20px; }
+.nav a { color: var(--blue); text-decoration: none; font-size: 13px; }
+.nav a:hover { text-decoration: underline; }
+td a { color: var(--blue); text-decoration: none; }
+td a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<div class="nav">
+    <a href="../index.html">&larr; Overview</a>
+    <a href="2026-10-15.html">&larr; 2026-10-15</a>
+</div>
+<h1>Paper Trading &mdash; 2026-10-16</h1>
+<div class="subtitle">Report generated 2026-10-15T12:35:41.478924</div>
+<h2>Day Summary</h2>
+<div class="metrics-grid">
+<div class="metric-card"><div class="metric-label">Opened</div><div class="metric-value neutral">2</div></div>
+<div class="metric-card"><div class="metric-label">Closed</div><div class="metric-value neutral">2</div></div>
+<div class="metric-card"><div class="metric-label">Capital Deployed</div><div class="metric-value pos">$3,585.91</div></div>
+<div class="metric-card"><div class="metric-label">Realized P&L</div><div class="metric-value neg">$-306.36</div></div>
+<div class="metric-card"><div class="metric-label">Unrealized P&L</div><div class="metric-value neg">$-2.71</div></div>
+<div class="metric-card"><div class="metric-label">Equity</div><div class="metric-value pos">$9,117.07</div></div>
+<div class="metric-card"><div class="metric-label">Cash</div><div class="metric-value pos">$2,428.72</div></div>
+<div class="metric-card"><div class="metric-label">Invested</div><div class="metric-value pos">$6,688.35</div></div>
+<div class="metric-card"><div class="metric-label">Cash %</div><div class="metric-value neutral">26.6%</div></div>
+<div class="metric-card"><div class="metric-label">SPY Return</div><div class="metric-value neutral">—</div></div>
+</div>
+<h2>Buys</h2>
+<table><thead><tr><th>Ticker</th><th>Entry Price</th><th>Size ($)</th><th>Weight (%)</th><th>Score</th><th>Buy Reason</th></tr></thead><tbody>
+<tr><td><a href="https://finance.yahoo.com/quote/AEHR" target="_blank" rel="noopener">AEHR</a></td><td>$70.67</td>
+<td>$1,766.75</td>
+<td>19.4%</td>
+<td>2.2744</td>
+<td>Reranker 5.5x lift · 19% 1d / 17% 2d up · drivers: own return 20d, n1 comove recent ratio rank, own gap x systemic</td></tr>
+<tr><td><a href="https://finance.yahoo.com/quote/WULF" target="_blank" rel="noopener">WULF</a></td><td>$12.46</td>
+<td>$1,819.16</td>
+<td>19.9%</td>
+<td>2.2681</td>
+<td>Reranker 5.9x lift · 19% 1d / 17% 2d up · drivers: own return 20d, own gap x systemic, n1 comove recent ratio rank</td></tr>
+</tbody></table>
+<h2>Sells</h2>
+<table><thead><tr><th>Ticker</th><th>Entry Date</th><th>Entry Price</th><th>Exit Price</th><th>Return (%)</th><th>Return ($)</th><th>Hold Days</th><th>Exit Reason</th></tr></thead><tbody>
+<tr><td><a href="https://finance.yahoo.com/quote/MNPR" target="_blank" rel="noopener">MNPR</a></td><td>2026-10-12</td><td>$77.34</td><td>$72.44</td><td class="neg">-6.34%</td><td class="neg">$-117.60</td><td>3</td><td>Max hold days</td></tr>
+<tr><td><a href="https://finance.yahoo.com/quote/YSS" target="_blank" rel="noopener">YSS</a></td><td>2026-10-12</td><td>$6.75</td><td>$6.09</td><td class="neg">-9.78%</td><td class="neg">$-188.76</td><td>3</td><td>Max hold days</td></tr>
+</tbody></table>
+<h2>Execution</h2>
+<table><thead><tr><th>Ticker</th><th>Qty</th><th>Proposal Est.</th><th>Live Price</th><th>Slippage (%)</th><th>Slippage (bps)</th><th>Actual Cost</th></tr></thead><tbody>
+<tr><td><a href="https://finance.yahoo.com/quote/AEHR" target="_blank" rel="noopener">AEHR</a></td><td>25</td><td>$71.49</td><td>$70.67</td><td class="pos">-1.15%</td><td class="pos">-115.0</td><td>$1,766.75</td></tr>
+<tr><td><a href="https://finance.yahoo.com/quote/WULF" target="_blank" rel="noopener">WULF</a></td><td>146</td><td>$12.49</td><td>$12.46</td><td class="pos">-0.24%</td><td class="pos">-24.0</td><td>$1,819.16</td></tr>
+</tbody></table>
+<h3>Top 10 Candidates</h3>
+<table><thead><tr><th>Rank</th><th>Ticker</th><th>Score</th><th>Base Score</th><th>Status</th><th>Buy Reason</th></tr></thead><tbody>
+<tr><td>1</td><td><a href="https://finance.yahoo.com/quote/AEHR" target="_blank" rel="noopener">AEHR</a></td><td>2.2744</td><td>0.4111</td><td class="pos">submitted</td><td>Reranker 5.5x lift · 19% 1d / 17% 2d up · drivers: own return 20d, n1 comove recent ratio rank, own gap x systemic</td></tr>
+<tr><td>2</td><td><a href="https://finance.yahoo.com/quote/WULF" target="_blank" rel="noopener">WULF</a></td><td>2.2681</td><td>0.3874</td><td class="pos">submitted</td><td>Reranker 5.9x lift · 19% 1d / 17% 2d up · drivers: own return 20d, own gap x systemic, n1 comove recent ratio rank</td></tr>
+<tr><td>3</td><td><a href="https://finance.yahoo.com/quote/UMAC" target="_blank" rel="noopener">UMAC</a></td><td>2.2174</td><td>0.5737</td><td class="neutral">skipped (buy cap 2 filled)</td><td>Reranker 3.9x lift · 20% 1d / 39% 2d up · drivers: own gap x systemic, own return 20d, streak x range expansion</td></tr>
+<tr><td>4</td><td><a href="https://finance.yahoo.com/quote/ASST" target="_blank" rel="noopener">ASST</a></td><td>2.2012</td><td>0.5291</td><td class="neutral">skipped (buy cap 2 filled)</td><td>Reranker 4.2x lift · 20% 1d / 26% 2d up · drivers: own gap x systemic, n1 comove recent ratio rank, volume rank 1d</td></tr>
+<tr><td>5</td><td><a href="https://finance.yahoo.com/quote/NESR" target="_blank" rel="noopener">NESR</a></td><td>2.1883</td><td>0.5689</td><td class="neutral">skipped (buy cap 2 filled)</td><td>Reranker 3.8x lift · 33% 1d / 39% 2d up · drivers: own gap streak, own gap x systemic, own return 20d</td></tr>
+<tr><td>6</td><td><a href="https://finance.yahoo.com/quote/INTC" target="_blank" rel="noopener">INTC</a></td><td>2.1869</td><td>0.4184</td><td class="neutral">skipped (buy cap 2 filled)</td><td>Reranker 5.2x lift · 19% 1d / 23% 2d up · drivers: own gap x systemic, nnews degree z, volume rank 1d</td></tr>
+</tbody></table>
+<h2>Position Tracker</h2>
+<table><thead><tr><th>Ticker</th><th>Entry</th><th>Current</th><th>Return (%)</th><th>Return ($)</th><th>Days</th><th>Status</th></tr></thead><tbody>
+<tr><td><a href="https://finance.yahoo.com/quote/AEHR" target="_blank" rel="noopener">AEHR</a></td><td>$70.67</td><td>$70.65</td><td class="neg">-0.03%</td><td class="neg">$-0.52</td><td>0</td><td class="pos">open</td></tr>
+<tr><td><a href="https://finance.yahoo.com/quote/WULF" target="_blank" rel="noopener">WULF</a></td><td>$12.46</td><td>$12.45</td><td class="neg">-0.12%</td><td class="neg">$-2.19</td><td>0</td><td class="pos">open</td></tr>
+</tbody></table>
+<div class="footer">Generated by publish_paper_reports.py</div></body></html>
