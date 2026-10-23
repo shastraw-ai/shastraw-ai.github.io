@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paper Trading — 2026-10-26</title>
+<style>
+:root {
+    --bg: #1a1a2e;
+    --panel: #16213e;
+    --panel2: #0f3460;
+    --text: #e0e0e0;
+    --muted: #888;
+    --pos: #4caf50;
+    --neg: #ef5350;
+    --blue: #42a5f5;
+    --border: #333;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+    font-size: 13px;
+    padding: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+h1 { font-size: 20px; margin-bottom: 6px; color: var(--blue); }
+h2 { font-size: 16px; margin: 24px 0 12px; color: var(--blue); border-bottom: 1px solid var(--border); padding-bottom: 4px; }
+h3 { font-size: 14px; margin: 16px 0 8px; color: var(--text); }
+.subtitle { color: var(--muted); font-size: 12px; margin-bottom: 20px; }
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 12px;
+    margin-bottom: 20px;
+}
+.metric-card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 12px;
+}
+.metric-label { font-size: 11px; color: var(--muted); text-transform: uppercase; }
+.metric-value { font-size: 18px; font-weight: bold; margin-top: 4px; }
+.pos { color: var(--pos); }
+.neg { color: var(--neg); }
+.neutral { color: var(--text); }
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0;
+    font-size: 12px;
+}
+th, td {
+    padding: 6px 10px;
+    text-align: right;
+    border-bottom: 1px solid var(--border);
+}
+th { background: var(--panel2); color: var(--muted); font-weight: 600; text-transform: uppercase; font-size: 11px; }
+td:first-child, th:first-child { text-align: left; }
+tr:hover { background: rgba(66, 165, 245, 0.05); }
+.chart-container { margin: 16px 0; text-align: center; }
+.chart-container img { max-width: 100%; border-radius: 6px; }
+.alert-box {
+    background: rgba(239, 83, 80, 0.15);
+    border: 1px solid var(--neg);
+    border-radius: 6px;
+    padding: 12px;
+    margin: 12px 0;
+}
+.info-box {
+    background: rgba(66, 165, 245, 0.1);
+    border: 1px solid var(--blue);
+    border-radius: 6px;
+    padding: 12px;
+    margin: 12px 0;
+}
+.footer { margin-top: 32px; padding-top: 12px; border-top: 1px solid var(--border); color: var(--muted); font-size: 11px; }
+</style>
+<style>
+.nav { display: flex; gap: 16px; margin-bottom: 20px; }
+.nav a { color: var(--blue); text-decoration: none; font-size: 13px; }
+.nav a:hover { text-decoration: underline; }
+td a { color: var(--blue); text-decoration: none; }
+td a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<div class="nav">
+    <a href="../index.html">&larr; Overview</a>
+    <a href="2026-10-23.html">&larr; 2026-10-23</a>
+</div>
+<h1>Paper Trading &mdash; 2026-10-26</h1>
+<div class="subtitle">Report generated 2026-10-23T12:36:06.754061</div>
+<h2>Day Summary</h2>
+<div class="metrics-grid">
+<div class="metric-card"><div class="metric-label">Opened</div><div class="metric-value neutral">2</div></div>
+<div class="metric-card"><div class="metric-label">Closed</div><div class="metric-value neutral">0</div></div>
+<div class="metric-card"><div class="metric-label">Capital Deployed</div><div class="metric-value pos">$900.40</div></div>
+<div class="metric-card"><div class="metric-label">Realized P&L</div><div class="metric-value neutral">$0.00</div></div>
+<div class="metric-card"><div class="metric-label">Unrealized P&L</div><div class="metric-value neg">$-0.23</div></div>
+<div class="metric-card"><div class="metric-label">Equity</div><div class="metric-value pos">$8,608.03</div></div>
+<div class="metric-card"><div class="metric-label">Cash</div><div class="metric-value pos">$1,784.49</div></div>
+<div class="metric-card"><div class="metric-label">Invested</div><div class="metric-value pos">$6,823.54</div></div>
+<div class="metric-card"><div class="metric-label">Cash %</div><div class="metric-value neutral">20.7%</div></div>
+<div class="metric-card"><div class="metric-label">SPY Return</div><div class="metric-value neutral">—</div></div>
+</div>
+<h2>Buys</h2>
+<table><thead><tr><th>Ticker</th><th>Entry Price</th><th>Size ($)</th><th>Weight (%)</th><th>Score</th><th>Buy Reason</th></tr></thead><tbody>
+<tr><td><a href="https://finance.yahoo.com/quote/FRVO" target="_blank" rel="noopener">FRVO</a></td><td>$8.04</td>
+<td>$450.52</td>
+<td>5.2%</td>
+<td>2.2807</td>
+<td>Reranker 6.0x lift · 16% 1d / 17% 2d up · drivers: own return 20d, range compression streak, own momentum direction streak</td></tr>
+<tr><td><a href="https://finance.yahoo.com/quote/NVAX" target="_blank" rel="noopener">NVAX</a></td><td>$9.78</td>
+<td>$449.88</td>
+<td>5.2%</td>
+<td>2.2329</td>
+<td>Reranker 5.0x lift · 16% 1d / 23% 2d up · drivers: news fda recency, own gap streak, news analyst recency</td></tr>
+</tbody></table>
+<h2>Sells</h2>
+<div class="info-box">No positions closed.</div>
+<h2>Execution</h2>
+<table><thead><tr><th>Ticker</th><th>Qty</th><th>Proposal Est.</th><th>Live Price</th><th>Slippage (%)</th><th>Slippage (bps)</th><th>Actual Cost</th></tr></thead><tbody>
+<tr><td><a href="https://finance.yahoo.com/quote/FRVO" target="_blank" rel="noopener">FRVO</a></td><td>56</td><td>$8.10</td><td>$8.04</td><td class="pos">-0.68%</td><td class="pos">-68.0</td><td>$450.52</td></tr>
+<tr><td><a href="https://finance.yahoo.com/quote/NVAX" target="_blank" rel="noopener">NVAX</a></td><td>46</td><td>$9.99</td><td>$9.78</td><td class="pos">-2.10%</td><td class="pos">-210.0</td><td>$449.88</td></tr>
+</tbody></table>
+<h3>Top 10 Candidates</h3>
+<table><thead><tr><th>Rank</th><th>Ticker</th><th>Score</th><th>Base Score</th><th>Status</th><th>Buy Reason</th></tr></thead><tbody>
+<tr><td>1</td><td><a href="https://finance.yahoo.com/quote/FRVO" target="_blank" rel="noopener">FRVO</a></td><td>2.2807</td><td>0.3792</td><td class="pos">submitted</td><td>Reranker 6.0x lift · 16% 1d / 17% 2d up · drivers: own return 20d, range compression streak, own momentum direction streak</td></tr>
+<tr><td>2</td><td><a href="https://finance.yahoo.com/quote/NVAX" target="_blank" rel="noopener">NVAX</a></td><td>2.2329</td><td>0.4436</td><td class="pos">submitted</td><td>Reranker 5.0x lift · 16% 1d / 23% 2d up · drivers: news fda recency, own gap streak, news analyst recency</td></tr>
+<tr><td>3</td><td><a href="https://finance.yahoo.com/quote/FIGR" target="_blank" rel="noopener">FIGR</a></td><td>2.2231</td><td>0.5519</td><td class="neutral">skipped (buy cap 2 filled)</td><td>Reranker 4.0x lift · 30% 1d / 50% 2d up · drivers: own return 20d, own momentum direction streak, news offering recency</td></tr>
+<tr><td>4</td><td><a href="https://finance.yahoo.com/quote/CRDO" target="_blank" rel="noopener">CRDO</a></td><td>2.1955</td><td>0.5679</td><td class="neutral">skipped (buy cap 2 filled)</td><td>Reranker 3.9x lift · 30% 1d / 44% 2d up · drivers: own return 20d, own gap vs 20d vol, n1 comove recent ratio rank</td></tr>
+<tr><td>5</td><td><a href="https://finance.yahoo.com/quote/CRML" target="_blank" rel="noopener">CRML</a></td><td>2.1512</td><td>0.5285</td><td class="neutral">skipped (buy cap 2 filled)</td><td>Reranker 4.1x lift · 25% 1d / 24% 2d up · drivers: own vwap deviation, own gap reversal tendency, sib quality signal 3d</td></tr>
+</tbody></table>
+<h2>Position Tracker</h2>
+<table><thead><tr><th>Ticker</th><th>Entry</th><th>Current</th><th>Return (%)</th><th>Return ($)</th><th>Days</th><th>Status</th></tr></thead><tbody>
+<tr><td><a href="https://finance.yahoo.com/quote/FRVO" target="_blank" rel="noopener">FRVO</a></td><td>$8.04</td><td>$8.04</td><td class="neutral">+0.00%</td><td class="neutral">$+0.00</td><td>0</td><td class="pos">open</td></tr>
+<tr><td><a href="https://finance.yahoo.com/quote/NVAX" target="_blank" rel="noopener">NVAX</a></td><td>$9.78</td><td>$9.78</td><td class="neg">-0.05%</td><td class="neg">$-0.23</td><td>0</td><td class="pos">open</td></tr>
+</tbody></table>
+<div class="footer">Generated by publish_paper_reports.py</div></body></html>
